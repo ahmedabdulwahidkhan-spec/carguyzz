@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARGUYS QUARTERLY — The First-Drive Issue · Vol. I · №001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Archivo+Narrow:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CARGUYS QUARTERLY — v3 · The First-Drive Issue
+   Hagerty's-inspired spreads · editorial photography ·
+   department tabs · collage cutouts · parallax · scroll reveals
+   ============================================================ */
+
+:root{
+  --ink:#1a1715;
+  --bone:#f3efe6;
+  --paper:#fbf9f3;
+  --rule:#b9ae99;
+  --red:#b8271c;
+  --rust:#c8582d;
+  --signal:#e2b736;
+  --teal:#2e7a86;
+  --navy:#1c2d44;
+  --sand:#e8dfc8;
+  --moss:#5a6a3d;
+
+  --display:'Playfair Display', Georgia, serif;
+  --sans:'Manrope', -apple-system, system-ui, sans-serif;
+  --narrow:'Archivo Narrow', 'Manrope', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+  --italic:'Cormorant Garamond', Georgia, serif;
+  --impact:'Bebas Neue', 'Archivo Narrow', sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#2a2520;
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:14px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  padding:40px 0 80px;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse at top, #3a3530 0%, #2a2520 50%, #1a1715 100%);
+  background-attachment:fixed;
+}
+
+/* ============================================================
+   MAGAZINE SHELL
+   ============================================================ */
+.mag{max-width:1760px;margin:0 auto;padding:0 20px}
+
+.spread, .single{
+  background:var(--bone);
+  margin:50px auto;
+  box-shadow:
+    0 40px 80px -20px rgba(0,0,0,.55),
+    0 10px 30px -10px rgba(0,0,0,.3),
+    0 0 0 1px rgba(0,0,0,.15);
+  position:relative;
+  overflow:hidden;
+  transition: box-shadow .6s ease, transform .6s ease;
+}
+.spread{
+  width:100%;
+  max-width:1680px;
+  aspect-ratio: 16/10.5;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+}
+.spread::after{
+  content:'';
+  position:absolute; top:0; bottom:0; left:50%;
+  width:50px; margin-left:-25px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(0,0,0,.05) 30%,
+    rgba(0,0,0,.15) 48%,
+    rgba(0,0,0,.20) 50%,
+    rgba(0,0,0,.15) 52%,
+    rgba(0,0,0,.05) 70%,
+    transparent 100%);
+  pointer-events:none;
+  z-index:40;
+}
+.single{
+  width:100%;
+  max-width:880px;
+  aspect-ratio: 8/10.5;
+  position:relative;
+}
+
+.spread.dark, .single.dark{ background:var(--ink); color:var(--bone);}
+.spread.paper, .single.paper{ background:var(--paper);}
+.spread.sand, .single.sand{ background:var(--sand);}
+.spread.split-dark > div:first-child{ background:var(--ink); color:var(--bone);}
+
+/* Page content wrappers inside spreads */
+.page{ position:relative; overflow:hidden; padding:56px 48px;}
+.page.bleed{ padding:0;}
+.page.dark{ background:var(--ink); color:var(--bone);}
+.page.sand{ background:var(--sand);}
+.page.paper{ background:var(--paper);}
+
+.spread.focus, .single.focus{
+  box-shadow:
+    0 60px 120px -20px rgba(0,0,0,.8),
+    0 20px 50px -10px rgba(0,0,0,.55),
+    0 0 0 1px rgba(0,0,0,.2);
+}
+
+/* ============================================================
+   DEPARTMENT TAB
+   ============================================================ */
+.dept-tab{
+  position:absolute; top:0; right:0;
+  background:var(--red);
+  color:#fff;
+  font-family:var(--narrow);
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:10px;
+  padding:11px 20px 11px 28px;
+  z-index:30;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+  display:flex; align-items:center; gap:8px;
+}
+.dept-tab::before{
+  content:'●'; color:var(--signal); font-size:9px;
+}
+.dept-tab.yellow{ background:var(--signal); color:var(--ink);}
+.dept-tab.yellow::before{ color:var(--red);}
+.dept-tab.teal{ background:var(--teal);}
+.dept-tab.navy{ background:var(--navy);}
+.dept-tab.ink{ background:var(--ink); color:var(--signal);}
+.dept-tab.ink::before{ color:var(--signal);}
+
+/* Page footers */
+.page-foot{
+  position:absolute; bottom:20px;
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.15em;
+  color:var(--ink);
+  opacity:.6;
+  z-index:20;
+}
+.page-foot.l{ left:32px;}
+.page-foot.r{ right:32px;}
+.dark .page-foot, .page.dark .page-foot{ color:var(--bone); opacity:.65;}
+
+/* Running header */
+.run-head{
+  position:absolute; top:20px; left:32px; right:32px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--narrow);
+  text-transform:uppercase; letter-spacing:.2em;
+  font-size:10px;
+  color:var(--ink); opacity:.5;
+  z-index:20;
+}
+.dark .run-head, .page.dark .run-head{ color:var(--bone); opacity:.5;}
+.run-head .line{ flex:1; border-top:1px solid currentColor; opacity:.4; margin:0 14px;}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.eyebrow{
+  font-family:var(--narrow);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  font-size:10px;
+  color:var(--red);
+  display:inline-flex;
+  align-items:center; gap:10px;
+}
+.eyebrow::before{
+  content:''; width:28px; height:2px; background:currentColor;
+}
+.eyebrow.yellow{ color:var(--signal);}
+.eyebrow.cream{ color:var(--bone);}
+.eyebrow.teal{ color:var(--teal);}
+.eyebrow.ink{ color:var(--ink);}
+
+h1.display, h2.display, h3.display{
+  font-family:var(--display);
+  font-weight:900;
+  line-height:.9;
+  letter-spacing:-.015em;
+  color:var(--ink);
+}
+.dark h1.display, .dark h2.display, .dark h3.display,
+.page.dark h1.display, .page.dark h2.display, .page.dark h3.display{ color:var(--bone);}
+
+.italic-red{ font-style:italic; color:var(--red); font-weight:700;}
+.italic-yellow{ font-style:italic; color:var(--signal); font-weight:700;}
+.italic-cream{ font-style:italic; color:var(--bone); font-weight:400;}
+
+.dek{
+  font-family:var(--italic);
+  font-style:italic;
+  font-size:19px;
+  line-height:1.4;
+  color:var(--ink);
+  opacity:.88;
+}
+.dark .dek, .page.dark .dek{ color:var(--bone); opacity:.9;}
+
+p.body{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--ink);
+  text-align:justify;
+  hyphens:auto;
+}
+p.body + p.body{ text-indent:1.3em;}
+.dark p.body, .page.dark p.body{ color:var(--bone);}
+
+.drop::first-letter{
+  font-family:var(--display);
+  font-weight:900;
+  float:left;
+  font-size:68px;
+  line-height:.82;
+  padding:8px 10px 0 0;
+  color:var(--red);
+}
+.dark .drop::first-letter, .page.dark .drop::first-letter{ color:var(--signal);}
+
+.col-2{ column-count:2; column-gap:24px;}
+.col-3{ column-count:3; column-gap:18px;}
+
+.byline{
+  font-family:var(--narrow);
+  font-size:10px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--ink); opacity:.7;
+}
+.dark .byline, .page.dark .byline{ color:var(--bone);}
+.byline .dots{ color:var(--red); letter-spacing:0; margin-right:8px;}
+
+/* Pull quotes */
+.pull{
+  font-family:var(--display);
+  font-weight:700;
+  font-style:italic;
+  font-size:28px;
+  line-height:1.18;
+  color:var(--ink);
+  padding:18px 0;
+  border-top:3px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  letter-spacing:-.005em;
+}
+.dark .pull, .page.dark .pull{ color:var(--bone); border-color:var(--bone);}
+
+.pull.over-photo{
+  position:absolute;
+  background:rgba(26,23,21,.88);
+  color:#fff;
+  padding:22px 28px;
+  border:none;
+  transform:rotate(-1.5deg);
+  max-width:380px;
+  font-size:20px;
+  line-height:1.25;
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+  z-index:14;
+}
+.pull.over-photo .mark{
+  color:var(--signal); font-family:var(--display);
+  font-size:70px; line-height:.1; vertical-align:-12px; margin-right:6px;
+}
+
+.pull.angled{
+  position:absolute;
+  background:var(--signal);
+  color:var(--ink);
+  padding:20px 26px;
+  border:none;
+  transform:rotate(-3deg);
+  max-width:360px;
+  font-size:19px;
+  line-height:1.2;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  z-index:14;
+  font-family:var(--display);
+  font-weight:900;
+  font-style:italic;
+}
+
+/* ============================================================
+   PHOTOS
+   ============================================================ */
+.photo{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg, #3a3530 0%, #1a1715 100%);
+}
+.photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 1.4s cubic-bezier(.2,.8,.2,1), filter .6s;
+  will-change:transform;
+}
+.photo:hover img{ transform:scale(1.06);}
+.photo.parallax img{ transform:scale(1.15);}
+
+.photo .caption{
+  position:absolute; bottom:12px; left:16px; right:16px;
+  font-family:var(--narrow);
+  font-size:10px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#fff;
+  z-index:3;
+  text-shadow:0 1px 3px rgba(0,0,0,.9);
+  line-height:1.3;
+}
+.photo .caption strong{ color:var(--signal);}
+.photo .caption.italic{
+  font-family:var(--italic); font-style:italic;
+  text-transform:none; letter-spacing:0;
+  font-size:13px;
+}
+.photo::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 35%);
+  pointer-events:none;
+}
+.photo.no-gradient::after{ display:none;}
+
+.photo .tint{
+  position:absolute; inset:0;
+  background:rgba(26,23,21,.3);
+  mix-blend-mode:multiply;
+  pointer-events:none;
+  z-index:2;
+}
+.photo .tint.warm{ background:rgba(200,88,45,.15); mix-blend-mode:overlay;}
+
+/* Duotone filter for feature photos */
+.photo.duotone img{ filter:grayscale(.4) contrast(1.1);}
+
+/* Polaroids */
+.polaroid{
+  background:#fff;
+  padding:8px 8px 36px 8px;
+  box-shadow: 0 12px 24px rgba(0,0,0,.3), 0 2px 6px rgba(0,0,0,.15);
+  position:absolute;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s;
+  z-index:5;
+}
+.polaroid img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.polaroid .tape-label{
+  position:absolute; bottom:8px; left:0; right:0;
+  text-align:center;
+  font-family:var(--italic);
+  font-style:italic;
+  font-size:13px;
+  color:var(--ink);
+}
+.polaroid:hover{
+  transform: rotate(0deg) scale(1.08) !important;
+  box-shadow: 0 28px 50px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.25);
+  z-index:30 !important;
+}
+/* Tape on polaroid */
+.polaroid.taped::before{
+  content:''; position:absolute;
+  top:-10px; left:50%; transform:translateX(-50%) rotate(-2deg);
+  width:80px; height:20px;
+  background:rgba(240, 220, 150, .6);
+  box-shadow:0 2px 4px rgba(0,0,0,.15);
+}
+
+/* ============================================================
+   SIDEBAR BOXES (Hagerty tinted blocks)
+   ============================================================ */
+.sidebox{
+  background:var(--sand);
+  padding:22px 24px;
+  border-left:4px solid var(--red);
+  font-family:var(--sans);
+  font-size:12px;
+  line-height:1.55;
+}
+.sidebox h4{
+  font-family:var(--narrow);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:11px;
+  color:var(--red);
+  margin-bottom:12px;
+  font-weight:700;
+}
+.sidebox.teal{ background:#d6e4e6; border-left-color:var(--teal);}
+.sidebox.teal h4{ color:var(--teal);}
+.sidebox.yellow{ background:#f5e8c0; border-left-color:#c69915;}
+.sidebox.yellow h4{ color:#8a6a16;}
+.sidebox.ink{ background:var(--ink); color:var(--bone); border-left-color:var(--signal);}
+.sidebox.ink h4{ color:var(--signal);}
+.sidebox.navy{ background:var(--navy); color:var(--bone); border-left-color:var(--signal);}
+.sidebox.navy h4{ color:var(--signal);}
+
+/* Q&A box (Car Counselor style) */
+.qa-item{ margin-bottom:18px; font-family:var(--sans); font-size:12px; line-height:1.55;}
+.qa-item .q{ font-weight:700; font-size:14px; margin-bottom:6px; color:var(--ink);}
+.qa-item .q::before{
+  content:'Q'; display:inline-block;
+  font-family:var(--display); font-size:32px; font-weight:900;
+  color:var(--red); line-height:.6; vertical-align:-6px; margin-right:6px;
+}
+.qa-item .a::before{
+  content:'A'; display:inline-block;
+  font-family:var(--display); font-size:32px; font-weight:900;
+  color:var(--ink); line-height:.6; vertical-align:-6px; margin-right:6px;
+}
+.qa-item .a{ font-family:var(--italic); font-style:italic; font-size:13.5px;}
+
+/* ============================================================
+   GRID HELPERS
+   ============================================================ */
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+.three-col{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;}
+.four-col{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+.five-col{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px;}
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1);}
+.reveal.in{ opacity:1; transform:translateY(0);}
+.reveal-1{ transition-delay:.1s;}
+.reveal-2{ transition-delay:.22s;}
+.reveal-3{ transition-delay:.34s;}
+.reveal-4{ transition-delay:.46s;}
+.reveal-5{ transition-delay:.58s;}
+
+/* ============================================================
+   FLOATING UI
+   ============================================================ */
+.nav-dots{
+  position:fixed; right:18px; top:50%; transform:translateY(-50%);
+  z-index:200;
+  display:flex; flex-direction:column; gap:6px;
+  background:rgba(26,23,21,.8);
+  backdrop-filter:blur(14px);
+  padding:14px 9px;
+  border-radius:22px;
+  border:1px solid rgba(243,239,230,.1);
+}
+.nav-dots button{
+  width:9px; height:9px;
+  border-radius:50%;
+  border:none; padding:0;
+  background:rgba(243,239,230,.35);
+  cursor:pointer;
+  transition:all .3s;
+  position:relative;
+}
+.nav-dots button:hover{ background:var(--signal); transform:scale(1.5);}
+.nav-dots button.active{
+  background:var(--red);
+  transform:scale(1.6);
+  box-shadow:0 0 0 3px rgba(184,39,28,.2);
+}
+.nav-dots button span{
+  position:absolute; right:24px; top:50%; transform:translateY(-50%);
+  background:rgba(26,23,21,.95); color:var(--bone);
+  padding:4px 10px; border-radius:4px;
+  font-family:var(--narrow); font-size:10px; letter-spacing:.1em;
+  text-transform:uppercase; white-space:nowrap;
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.nav-dots button:hover span{ opacity:1;}
+
+.progress{
+  position:fixed; top:0; left:0; right:0; height:3px;
+  background:rgba(243,239,230,.08);
+  z-index:300;
+}
+.progress-fill{
+  height:100%; width:0;
+  background:linear-gradient(90deg, var(--red) 0%, var(--rust) 50%, var(--signal) 100%);
+  transition:width .1s linear;
+  box-shadow:0 0 12px rgba(226,183,54,.4);
+}
+
+/* Issue header banner at top */
+.issue-banner{
+  max-width:1680px;
+  margin:0 auto 20px;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--bone);
+  font-family:var(--narrow);
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  font-size:11px;
+  opacity:.7;
+}
+.issue-banner .sep{ flex:1; border-top:1px solid rgba(243,239,230,.2); margin:0 20px;}
+
+/* Masthead */
+.masthead{
+  font-family:var(--display);
+  font-weight:900;
+  font-style:italic;
+  line-height:.82;
+  letter-spacing:-.04em;
+  color:var(--red);
+}
+.masthead::after{
+  content:'.';
+  color:var(--ink);
+  margin-left:-.08em;
+}
+
+/* Big background numerals */
+.bigno{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:240px;
+  line-height:.8;
+  color:var(--red);
+  opacity:.13;
+  position:absolute;
+  pointer-events:none;
+}
+
+/* Feature open 'drop title' — Hagerty feature opener style */
+.feature-title{
+  font-family:var(--display);
+  font-weight:900;
+  font-style:italic;
+  font-size:clamp(72px, 9vw, 140px);
+  line-height:.88;
+  letter-spacing:-.02em;
+  color:var(--bone);
+  text-shadow:0 4px 20px rgba(0,0,0,.5);
+}
+.feature-title .accent{ color:var(--signal);}
+
+/* Data table styling */
+table.data{
+  width:100%; border-collapse:collapse;
+  font-family:var(--sans); font-size:12px;
+}
+table.data th{
+  font-family:var(--narrow);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:10px;
+  color:var(--red);
+  text-align:left;
+  padding:10px 12px;
+  border-bottom:2px solid var(--ink);
+  font-weight:700;
+}
+table.data td{
+  padding:14px 12px;
+  border-bottom:1px dotted rgba(0,0,0,.2);
+  vertical-align:top;
+  line-height:1.5;
+}
+table.data td.drama{
+  font-family:var(--display); font-style:italic; font-weight:700;
+  font-size:14px; color:var(--red); width:22%;
+}
+table.data td.warn{ font-family:var(--italic); font-style:italic; color:var(--ink);}
+.dark table.data th, .page.dark table.data th{ color:var(--signal); border-bottom-color:var(--bone);}
+.dark table.data td, .page.dark table.data td{ border-bottom-color:rgba(243,239,230,.2); color:var(--bone);}
+.dark table.data td.drama, .page.dark table.data td.drama{ color:var(--signal);}
+
+/* Stamp/label chips */
+.chip{
+  display:inline-block;
+  background:var(--red); color:#fff;
+  font-family:var(--narrow);
+  text-transform:uppercase; letter-spacing:.15em;
+  font-size:9px; font-weight:700;
+  padding:4px 10px;
+}
+.chip.yellow{ background:var(--signal); color:var(--ink);}
+.chip.teal{ background:var(--teal);}
+.chip.navy{ background:var(--navy);}
+.chip.ink{ background:var(--ink); color:var(--signal);}
+
+/* Media: mobile stack */
+@media (max-width: 900px){
+  .spread{ aspect-ratio:auto; grid-template-columns:1fr;}
+  .spread::after{ display:none;}
+  .spread > .page{ min-height:720px;}
+  .col-2, .col-3{ column-count:1;}
+  .two-col, .three-col, .four-col, .five-col{ grid-template-columns:1fr; gap:20px;}
+  .page{ padding:36px 28px;}
+  .nav-dots{ display:none;}
+  .issue-banner{ font-size:9px;}
+}
+
+/* Print */
+@page{ size:16in 10.5in; margin:0;}
+@media print{
+  body{ background:#fff; padding:0;}
+  .mag{ max-width:none;}
+  .spread, .single{
+    margin:0; box-shadow:none;
+    page-break-after:always;
+    break-after:page; break-inside:avoid;
+  }
+  .nav-dots, .progress, .issue-banner{ display:none !important;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+<nav class="nav-dots" id="navDots"></nav>
+
+<div class="issue-banner">
+  <span>CARGUYS QUARTERLY</span>
+  <span class="sep"></span>
+  <span>VOL. I · ISSUE №001</span>
+  <span class="sep"></span>
+  <span>THE FIRST-DRIVE ISSUE · APRIL MMXXVI</span>
+</div>
+
+<div class="mag">
+
+<!-- ==================================================================
+     SPREAD 1 — COVER
+     Hagerty-style: left = mail panel, right = masthead + hero photo
+     ================================================================== -->
+<section class="spread" id="cover" data-title="Cover">
+  <!-- LEFT PAGE: mail flap + cover line -->
+  <div class="page" style="background:#c2ceca; padding:0;">
+    <!-- Mailing label (top-left) -->
+    <div style="position:absolute; top:44px; left:44px; background:#fff; padding:16px 18px; width:200px; border:1px solid #777; font-family:var(--mono); font-size:10px; line-height:1.55; box-shadow:0 4px 10px rgba(0,0,0,.1);">
+      <div style="font-weight:700;">PRSRT STD<br>U.S. POSTAGE<br><span style="background:#000; color:#fff; padding:2px 7px; display:inline-block; margin:3px 0; letter-spacing:.1em;">PAID</span><br>Toronto, ON<br>Permit #2626</div>
+    </div>
+
+    <!-- Left background image (muted, blue-green for Hagerty vibe) -->
+    <div class="photo parallax" data-parallax="0.1" style="position:absolute; inset:0; z-index:0; opacity:.35;">
+      <img src="https://images.pexels.com/photos/1534604/pexels-photo-1534604.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" loading="lazy">
+      <div class="tint" style="background:rgba(100,130,130,.5); mix-blend-mode:multiply;"></div>
+    </div>
+
+    <!-- Cover line strip -->
+    <div style="position:absolute; bottom:150px; left:44px; right:44px; z-index:5;">
+      <div style="background:rgba(26,23,21,.94); color:#fff; padding:22px 26px; display:inline-block; max-width:400px; box-shadow:0 10px 30px rgba(0,0,0,.3);">
+        <div class="eyebrow yellow" style="margin-bottom:10px; font-size:9px;">PLUS · A FIELD INVESTIGATION</div>
+        <div style="font-family:var(--display); font-weight:700; font-style:italic; font-size:26px; line-height:1.1; color:#fff; margin-bottom:8px;">The <span style="color:var(--signal);">Curbsiders</span><br>& the Four-Step Defense</div>
+        <div style="font-family:var(--narrow); text-transform:uppercase; letter-spacing:.18em; font-size:10px; color:var(--signal); opacity:.9;">PAGE 018 · A TRUE STORY</div>
+      </div>
+    </div>
+
+    <!-- Footer info -->
+    <div style="position:absolute; bottom:34px; left:44px; z-index:5; font-family:var(--mono); font-size:9px; line-height:1.7; color:var(--ink);">
+      <strong style="font-size:10px; letter-spacing:.1em;">CARGUYS QUARTERLY</strong><br>
+      P.O. Box 2026, Toronto M5V<br>
+      Ontario, Canada · $24 CAD
+    </div>
+  </div>
+
+  <!-- RIGHT PAGE: masthead + hero -->
+  <div class="page" style="background:linear-gradient(180deg, #e8dfc8 0%, #a8b5b2 45%, #2a2520 100%); padding:0; position:relative;">
+    <!-- Hero car photo (big) -->
+    <div class="photo parallax" data-parallax="0.12" style="position:absolute; left:-5%; right:-5%; bottom:0; height:68%; z-index:1;">
+      <img src="https://images.pexels.com/photos/1534604/pexels-photo-1534604.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Classic Dodge muscle car at sunset" loading="eager">
+    </div>
+
+    <!-- Masthead banner -->
+    <div style="position:absolute; top:46px; left:44px; right:44px; z-index:5; text-align:right;">
+      <div class="eyebrow ink" style="font-size:10px; justify-content:flex-end; opacity:.8;">FUEL FOR THE MOTORING MIND</div>
+      <div class="masthead" style="font-size:clamp(72px, 11vw, 164px); margin-top:-4px; line-height:.82;">CARGUYS</div>
+      <div style="font-family:var(--narrow); text-transform:uppercase; letter-spacing:.2em; font-size:11px; color:var(--ink); margin-top:6px; opacity:.85;">VOLUME I · ISSUE №001 · APRIL MMXXVI</div>
+    </div>
+
+    <!-- Cover hed over car -->
+    <div style="position:absolute; top:44%; right:40px; z-index:10; text-align:right;">
+      <div style="font-family:var(--display); font-weight:900; font-style:italic; font-size:clamp(46px, 6.2vw, 84px); line-height:.88; color:#fff; text-shadow:0 6px 20px rgba(0,0,0,.6);">
+        How <span style="color:var(--signal);">to</span><br>
+        Buy Your<br>
+        First Car<br>
+        <span style="color:var(--signal); font-size:.9em;">&amp; Survive.</span>
+      </div>
+      <div style="font-family:var(--narrow); text-transform:uppercase; letter-spacing:.2em; font-size:12px; color:var(--signal); margin-top:16px; text-shadow:0 2px 8px rgba(0,0,0,.7);">
+        A BEGINNER'S FIELD MANUAL · 008 CHAPTERS
+      </div>
+    </div>
+
+    <!-- Byline + barcode -->
+    <div style="position:absolute; bottom:30px; right:40px; z-index:12; display:flex; align-items:flex-end; gap:16px; color:#fff;">
+      <div style="font-family:var(--italic); font-style:italic; font-size:14px; text-align:right; text-shadow:0 2px 6px rgba(0,0,0,.8);">
+        Writing &amp; wrenching by<br>
+        <strong style="font-family:var(--display); font-weight:700; font-style:normal; font-size:19px; color:#fff;">Ahmed Abdul Wahid</strong>
+      </div>
+      <div style="background:#fff; padding:6px 10px; display:flex; align-items:center; gap:6px;">
+        <div style="height:30px; width:64px; background: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 3px, #000 3px 5px, transparent 5px 7px, #000 7px 8px, transparent 8px 11px, #000 11px 12px);"></div>
+        <div style="font-family:var(--mono); font-size:8px; color:#000; line-height:1.1;">04<br>&gt;24</div>
+      </div>
+    </div>
+
+    <div class="dept-tab">COVER · VOL I №001</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 2 — EDITOR'S LETTER + MASTHEAD / CONTENTS
+     Left: big "publisher's" letter. Right: hero portrait + masthead
+     ================================================================== -->
+<section class="spread" id="letter" data-title="Editor's Letter">
+  <!-- LEFT PAGE: Letter body -->
+  <div class="page paper">
+    <div class="run-head"><span>CARGUYS · VOL. I</span><span class="line"></span><span>FROM THE DRIVER'S SEAT</span></div>
+    <div style="margin-top:30px;">
+      <div class="eyebrow reveal">EDITOR'S LETTER · №001</div>
+      <h1 class="display reveal reveal-1" style="font-size:68px; margin-top:14px;">
+        A <span class="italic-red">Letter</span><br>from the<br><span class="italic-red">Driver's</span> Seat.
+      </h1>
+      <div style="height:2px; background:var(--ink); width:80px; margin:22px 0;"></div>
+    </div>
+
+    <p class="body drop reveal reveal-2" style="margin-bottom:12px;">Your car is not a donkey — but when it comes to communication, the comparison is not as far off as it sounds. A car speaks constantly. It tells you where it stands, what it's doing, and what it needs. I don't speak "donkey," but I'm fluent enough in the language of cars to help you learn the basic vocabulary.</p>
+
+    <p class="body reveal reveal-3">Maybe the idea of <em>feeling</em> your car seems unusual. But in that feeling lies a kind of rapport — a quiet bridge between you and your machine. I am an observer, a tinkerer, and a lover of engines who has worked with cars of every description for years. What you hold here is the result of those years: clear, thoughtful procedures to help keep your car healthy and whole.</p>
+
+    <p class="body reveal reveal-4">I don't expect you to become a mechanic. I have already taken that walk. My experience stands beside you while you work. You bring the effort; this guide brings the direction. Together, we make a team.</p>
+
+    <p class="body reveal reveal-5">Cars operate on a simpler logic than humans. It is up to you to tune into their rhythm. Talk to your car — then get quiet and listen. Feel through the wheel, the pedals, the sound, the vibration. When you discover what it needs, carry out the right task with patience and care.</p>
+
+    <div class="pull reveal" style="margin-top:24px; font-size:24px;">
+      "If it's <span class="italic-red">too good</span> to be true, <span class="italic-red">it is</span> too good to be true."
+    </div>
+
+    <div style="margin-top:22px; font-family:var(--italic); font-style:italic; font-size:17px;">
+      — <span style="font-family:var(--display); font-weight:900; font-size:26px;">Ahmed.</span>
+    </div>
+    <div class="byline" style="margin-top:4px;">AHMED ABDUL WAHID · EDITOR · TORONTO · MMXXVI</div>
+
+    <div class="page-foot l">002 · CARGUYS №001</div>
+  </div>
+
+  <!-- RIGHT PAGE: Portrait photo, masthead credits, TOC teaser -->
+  <div class="page" style="padding:0; background:var(--ink);">
+    <!-- Top half: hero photo of car with mechanic -->
+    <div class="photo parallax" data-parallax="0.08" style="height:58%; position:relative;">
+      <img src="https://images.pexels.com/photos/8986070/pexels-photo-8986070.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Mechanic inspecting a lifted car" loading="lazy">
+      <div class="caption italic">Every car has a story. Most of them are told in oil, rust, and quiet mechanical grief.</div>
+    </div>
+
+    <!-- Bottom half: masthead column -->
+    <div style="padding:32px 40px; color:var(--bone);">
+      <div class="eyebrow yellow reveal">THE MASTHEAD</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:18px;">
+        <div class="reveal reveal-1">
+          <div class="byline" style="color:var(--signal); opacity:1; margin-bottom:10px;">EDITORIAL</div>
+          <div style="font-family:var(--sans); font-size:11.5px; line-height:1.7;">
+            <div><strong>Editor-in-Chief</strong><br>Ahmed Abdul Wahid</div>
+            <div style="margin-top:8px;"><strong>Field Editor</strong><br>The Curb</div>
+            <div style="margin-top:8px;"><strong>Illustration &amp; Photography</strong><br>Various · Pexels Contributors</div>
+          </div>
+        </div>
+        <div class="reveal reveal-2">
+          <div class="byline" style="color:var(--signal); opacity:1; margin-bottom:10px;">COLOPHON</div>
+          <div style="font-family:var(--sans); font-size:11.5px; line-height:1.7;">
+            <div>Set in <em>Playfair Display</em>, <em>Manrope</em>,<br><em>JetBrains Mono</em>, <em>Cormorant Garamond</em>.</div>
+            <div style="margin-top:10px;">Printed in ideas.<br>Bound in patience.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid rgba(243,239,230,.2); margin-top:22px; padding-top:18px;">
+        <div class="eyebrow yellow">IN THIS ISSUE</div>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px 18px; margin-top:10px; font-family:var(--narrow); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">
+          <div>01 · The Hero Is You · <span style="color:var(--signal);">p. 008</span></div>
+          <div>05 · Body &amp; Paint · <span style="color:var(--signal);">p. 060</span></div>
+          <div>02 · The Curbsiders · <span style="color:var(--signal);">p. 018</span></div>
+          <div>06 · Brakes · <span style="color:var(--signal);">p. 072</span></div>
+          <div>03 · The Engine · <span style="color:var(--signal);">p. 032</span></div>
+          <div>07 · Tires &amp; Rims · <span style="color:var(--signal);">p. 086</span></div>
+          <div>04 · The Gearbox · <span style="color:var(--signal);">p. 046</span></div>
+          <div>08 · Steering · <span style="color:var(--signal);">p. 098</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab ink">EDITOR · FROM THE SEAT</div>
+    <div class="page-foot r" style="color:var(--bone); opacity:.6;">003 · CARGUYS №001</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 3 — THE INDEX (Table of Contents)
+     Left: magazine-style layered TOC with big index title and featured lines
+     Right: bold feature callouts with photos (Hagerty-style CONTENTS collage)
+     ================================================================== -->
+<section class="spread" id="contents" data-title="Contents">
+  <div class="page" style="padding:0; position:relative;">
+    <div class="run-head"><span>CARGUYS · VOL. I</span><span class="line"></span><span>THE INDEX</span></div>
+
+    <div style="padding:70px 48px 40px 48px;">
+      <div class="eyebrow reveal">INSIDE VOLUME I · №001</div>
+      <h1 class="display reveal reveal-1" style="font-size:96px; margin-top:10px;">The <span class="italic-red">Index.</span></h1>
+      <div class="dek reveal reveal-2" style="max-width:420px; margin-top:14px;">Eight chapters. One objective: stay off the Curbsider's list. Drive home in something you're proud of.</div>
+      <div style="height:3px; background:var(--ink); width:100%; margin:22px 0 14px;"></div>
+
+      <!-- Front of book -->
+      <div class="eyebrow reveal reveal-3" style="color:var(--ink); opacity:.7;">FRONT OF BOOK · PAGES 002—007</div>
+      <div style="margin-top:14px;">
+        <div class="reveal reveal-3" style="display:grid; grid-template-columns:32px 1fr 60px; gap:14px; padding:10px 0; border-bottom:1px dotted rgba(0,0,0,.25); align-items:baseline;">
+          <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">i</div>
+          <div>
+            <div style="font-family:var(--display); font-weight:700; font-size:16px;">A Letter from <em>the</em> Driver's Seat</div>
+            <div style="font-family:var(--italic); font-style:italic; font-size:12px; opacity:.7; margin-top:2px;">Why listening to your car matters more than any tool in your kit.</div>
+          </div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">002</div>
+        </div>
+        <div class="reveal reveal-3" style="display:grid; grid-template-columns:32px 1fr 60px; gap:14px; padding:10px 0; border-bottom:1px dotted rgba(0,0,0,.25); align-items:baseline;">
+          <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">ii</div>
+          <div>
+            <div style="font-family:var(--display); font-weight:700; font-size:16px;">The <em>Driveway</em> Diary</div>
+            <div style="font-family:var(--italic); font-style:italic; font-size:12px; opacity:.7; margin-top:2px;">Notes on the urban automotive condition — why a nap in traffic is the worst kind.</div>
+          </div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">006</div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="eyebrow reveal reveal-4" style="margin-top:22px; color:var(--ink); opacity:.7;">FEATURES · THE HEART OF THE ISSUE</div>
+      <div style="margin-top:14px;">
+        <div class="reveal reveal-4" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">01</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Hero</em> Is You</div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">008</div>
+        </div>
+        <div class="reveal reveal-4" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">02</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Curbsiders</em></div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">018</div>
+        </div>
+        <div class="reveal reveal-4" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">03</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Engine</em> — Light &amp; Smoke</div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">032</div>
+        </div>
+        <div class="reveal reveal-5" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">04</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Gearbox</em> &amp; Its Grief</div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">046</div>
+        </div>
+        <div class="reveal reveal-5" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">05</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">Body &amp; Paint — Forensics</div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">060</div>
+        </div>
+        <div class="reveal reveal-5" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">06</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Brakes</em></div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">072</div>
+        </div>
+        <div class="reveal reveal-5" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">07</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The Four <em>Contact Patches</em></div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">086</div>
+        </div>
+        <div class="reveal reveal-5" style="display:grid; grid-template-columns:40px 1fr 60px; gap:14px; padding:9px 0; border-bottom:1px dotted rgba(0,0,0,.2); align-items:baseline;">
+          <div style="font-family:var(--display); font-weight:900; color:var(--red); font-size:20px;">08</div>
+          <div><div style="font-family:var(--display); font-weight:700; font-size:15px;">The <em>Steering</em> System</div></div>
+          <div style="font-family:var(--mono); font-size:11px; text-align:right;">098</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab">CONTENTS · THE INDEX</div>
+    <div class="page-foot l">004 · CARGUYS №001</div>
+  </div>
+
+  <!-- RIGHT PAGE: feature callouts collage -->
+  <div class="page" style="padding:0; position:relative; background:var(--bone);">
+    <div class="run-head"><span>THE BIG STORIES</span><span class="line"></span><span>APRIL MMXXVI</span></div>
+
+    <!-- Feature image 1: Curbsiders (top) -->
+    <div style="position:absolute; top:70px; left:40px; right:40px; height:42%;">
+      <div class="photo parallax reveal" data-parallax="0.1" style="width:100%; height:100%; position:relative;">
+        <img src="https://images.pexels.com/photos/8986172/pexels-photo-8986172.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Mechanic inspecting a car" loading="lazy">
+        <div style="position:absolute; top:16px; left:16px; background:var(--red); color:#fff; padding:6px 12px; font-family:var(--narrow); text-transform:uppercase; letter-spacing:.18em; font-size:10px; font-weight:700; z-index:3;">INVESTIGATION · CH. 02</div>
+        <div style="position:absolute; bottom:18px; left:20px; right:20px; z-index:3;">
+          <div style="font-family:var(--display); font-weight:900; font-style:italic; font-size:42px; line-height:.95; color:#fff; text-shadow:0 3px 12px rgba(0,0,0,.7);">The <span style="color:var(--signal);">Curbsiders</span>.</div>
+          <div style="font-family:var(--italic); font-style:italic; font-size:14px; color:#fff; margin-top:6px; text-shadow:0 2px 6px rgba(0,0,0,.8);">A true story of getting played. Told in two acts.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature image 2: Engine (bottom-left) -->
+    <div style="position:absolute; bottom:80px; left:40px; width:46%; height:34%;">
+      <div class="photo parallax reveal reveal-1" data-parallax="0.08" style="width:100%; height:100%; position:relative;">
+        <img src="https://images.pexels.com/photos/9845404/pexels-photo-9845404.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Red car with open hood" loading="lazy">
+        <div style="position:absolute; top:14px; left:14px; background:var(--ink); color:var(--signal); padding:5px 10px; font-family:var(--narrow); text-transform:uppercase; letter-spacing:.16em; font-size:9px; font-weight:700; z-index:3;">DIAGNOSTICS · CH. 03</div>
+        <div style="position:absolute; bottom:14px; left:16px; right:16px; z-index:3;">
+          <div style="font-family:var(--display); font-weight:900; font-style:italic; font-size:26px; line-height:.95; color:#fff; text-shadow:0 3px 10px rgba(0,0,0,.7);">Light &amp; <span style="color:var(--signal);">Smoke</span>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature image 3: Tires (bottom-right) -->
+    <div style="position:absolute; bottom:80px; right:40px; width:46%; height:34%;">
+      <div class="photo parallax reveal reveal-2" data-parallax="0.11" style="width:100%; height:100%; position:relative;">
+        <img src="https://images.pexels.com/photos/364305/pexels-photo-364305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Car wheel and tire" loading="lazy">
+        <div style="position:absolute; top:14px; left:14px; background:var(--signal); color:var(--ink); padding:5px 10px; font-family:var(--narrow); text-transform:uppercase; letter-spacing:.16em; font-size:9px; font-weight:700; z-index:3;">FIELD GUIDE · CH. 07</div>
+        <div style="position:absolute; bottom:14px; left:16px; right:16px; z-index:3;">
+          <div style="font-family:var(--display); font-weight:900; font-style:italic; font-size:26px; line-height:.95; color:#fff; text-shadow:0 3px 10px rgba(0,0,0,.7);">Four <span style="color:var(--signal);">Patches</span>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back of book label at bottom -->
+    <div style="position:absolute; bottom:28px; left:40px; right:40px; display:flex; justify-content:space-between; align-items:center; font-family:var(--narrow); text-transform:uppercase; letter-spacing:.2em; font-size:10px; color:var(--ink); opacity:.6;">
+      <span>BACK OF BOOK · THE FINAL WORD</span>
+      <span>· CLOSING REMARKS · P. 136 ·</span>
+    </div>
+
+    <div class="dept-tab yellow">FEATURES</div>
+    <div class="page-foot r">005 · CARGUYS №001</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 4 — CHAPTER 01 OPENER · THE HERO IS YOU
+     Left: full-bleed car photo. Right: chapter number + hed + dek
+     ================================================================== -->
+<section class="spread" id="chap1" data-title="Ch. 01 · The Hero">
+  <!-- LEFT PAGE: full bleed hero photo -->
+  <div class="page bleed" style="background:var(--ink);">
+    <div class="photo parallax" data-parallax="0.15" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/2343508/pexels-photo-2343508.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Classic Dodge close-up" loading="lazy">
+      <div class="caption italic"><strong>PLATE I.</strong> The first moment — before you know what to look for.</div>
+    </div>
+    <!-- Feature-title overlay bottom-left -->
+    <div style="position:absolute; bottom:48px; left:40px; right:40px; z-index:10;">
+      <div class="eyebrow yellow reveal" style="color:var(--signal);">THE BEGINNING</div>
+      <div class="feature-title reveal reveal-1" style="font-size:clamp(60px, 7.5vw, 108px); margin-top:14px;">The <span class="accent">Hero</span><br>Is You.</div>
+    </div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">008 · CHAPTER I</div>
+  </div>
+
+  <!-- RIGHT PAGE: chapter intro essay -->
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CHAPTER I</span><span class="line"></span><span>PAGE 009</span></div>
+
+    <div style="position:absolute; top:60px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">01</div>
+
+    <div style="margin-top:70px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">CHAPTER ONE · THE MINDSET</div>
+      <h1 class="display reveal reveal-1" style="font-size:56px; margin-top:12px;">
+        This Manual <span class="italic-red">Is</span><br>Your Co-Pilot.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:16px;">Not the main character. Not the mechanic. Not the seller. You are. Everything in these pages assumes one thing — that you want to drive home in something you're proud of, not panicked about.</div>
+    </div>
+
+    <div style="margin-top:30px; position:relative; z-index:2;" class="col-2">
+      <p class="body reveal reveal-3" style="margin-bottom:10px;">Buying your first car feels like an adult exam you weren't told was coming. Salespeople talk in loops. Listings lie with confidence. Cars smile with fresh wax over a tired chassis. It is, by design, a situation meant to make you feel stupid.</p>
+      <p class="body reveal reveal-3">You are not stupid. You simply haven't been shown the procedures. Every test in this manual — the walk-around, the cold start, the OBD scan, the five-minute tire check — is a procedure someone already paid in tears and transmission fluid to learn. You get it free.</p>
+      <p class="body reveal reveal-3" style="margin-top:10px;">Work through the manual in order. Perform each step without skipping. If something feels wrong, trust that feeling first and verify it second. The car cannot lie to you; only people can.</p>
+    </div>
+
+    <div class="sidebox reveal reveal-4" style="margin-top:24px; position:relative; z-index:2;">
+      <h4>HOW TO READ THIS MANUAL</h4>
+      <div style="font-family:var(--sans); font-size:12px; line-height:1.6;">
+        <div style="margin-bottom:8px;"><span class="chip">STOP</span> &nbsp; Walk away. The risk is too high.</div>
+        <div style="margin-bottom:8px;"><span class="chip yellow">NEGOTIATE</span> &nbsp; Use the finding to lower price.</div>
+        <div><span class="chip teal">PROCEED</span> &nbsp; Normal wear. Note and continue.</div>
+      </div>
+    </div>
+
+    <div class="dept-tab">CHAPTER I · THE HERO</div>
+    <div class="page-foot r">009 · THE HERO IS YOU</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 5 — CURBSIDERS FEATURE · ACT I
+     DARK spread. Left: large title + Act I. Right: photo + quote
+     ================================================================== -->
+<section class="spread split-dark" id="curbsiders" data-title="The Curbsiders · Feature">
+  <!-- LEFT PAGE: Title + Act I story -->
+  <div class="page dark" style="position:relative;">
+    <div class="run-head" style="color:var(--bone); opacity:.5;"><span>INVESTIGATION · CH. 02</span><span class="line"></span><span>A TRUE STORY</span></div>
+
+    <div style="margin-top:38px;">
+      <div class="eyebrow yellow reveal">AN INVESTIGATION</div>
+      <h1 class="display reveal reveal-1" style="font-size:120px; color:var(--bone); line-height:.85; margin-top:16px;">
+        The<br><span style="color:var(--signal); font-style:italic;">Curb—</span><br>siders.
+      </h1>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:40px;">
+      <div>
+        <div class="eyebrow yellow reveal reveal-2" style="font-size:9px;">ACT ONE — THE SETUP</div>
+        <p class="body drop reveal reveal-3" style="color:var(--bone); margin-top:10px;">On a warm sunny afternoon, you head out to see a car. In your mind, you are already picturing the moment you pull up in it — the looks, the sound of the engine, the shine in the sunlight.</p>
+        <p class="body reveal reveal-3" style="color:var(--bone); margin-top:10px;">Part of you is cautious. Another part is already dreaming. Then you meet the seller. Confident. Charming. Smooth. Just enough to make you feel like this car was meant for you.</p>
+        <p class="body reveal reveal-3" style="color:var(--bone); margin-top:10px;"><em style="color:var(--signal);">But something feels off.</em> Your gut quietly taps you on the shoulder — yet you ignore it. The sun is glinting off the hood. The price is right. The title looks clean, the ownership history seems legit. Everything feels <em>normal.</em></p>
+      </div>
+      <div>
+        <div class="eyebrow yellow reveal reveal-4" style="font-size:9px;">THE QUIET VOICE</div>
+        <p class="body reveal reveal-4" style="color:var(--bone); margin-top:10px; font-style:italic; font-size:14px;">"Who actually wants to set sixty bucks on fire for a Carfax report?" you think. Hands are shaken. The car is bought. You believe you've won.</p>
+
+        <div style="background:rgba(226,183,54,.08); border-left:4px solid var(--signal); padding:16px 18px; margin-top:20px;" class="reveal reveal-5">
+          <div class="eyebrow yellow" style="font-size:9px; color:var(--signal);">DISCLAIMER</div>
+          <div style="font-family:var(--italic); font-style:italic; color:var(--bone); font-size:13px; line-height:1.5; margin-top:6px; opacity:.9;">
+            Based on true events. Names, cars, and a small amount of pride have been changed to protect the foolish — which, for a moment, was all of us.
+          </div>
+        </div>
+
+        <div style="margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:14px; font-family:var(--mono); font-size:10px; color:var(--signal); letter-spacing:.1em;">
+          <div>READ TIME<br><span style="color:var(--bone); font-size:14px; letter-spacing:0;">7 MINUTES</span></div>
+          <div>FILED FROM<br><span style="color:var(--bone); font-size:14px; letter-spacing:0;">SERVICEONTARIO</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab ink">FEATURE · CURBSIDERS</div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">018 · CHAPTER II</div>
+  </div>
+
+  <!-- RIGHT PAGE: Act II with big photo + story -->
+  <div class="page dark" style="padding:0; position:relative;">
+    <!-- Top half: feature photo -->
+    <div class="photo parallax duotone" data-parallax="0.12" style="height:48%; position:relative;">
+      <img src="https://images.pexels.com/photos/16041067/pexels-photo-16041067.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Black muscle car in a dark garage" loading="lazy">
+      <div class="tint"></div>
+      <div class="caption italic"><strong>PLATE II.</strong> The car as you saw it. Confident. Charming. Catastrophic.</div>
+
+      <!-- Angled pull quote over photo -->
+      <div class="pull angled reveal reveal-2" style="right:32px; bottom:40px; max-width:310px; font-size:17px;">
+        "You did not just buy a vehicle. You bought a <em style="color:var(--red);">ghost.</em>"
+      </div>
+    </div>
+
+    <!-- Bottom half: Act II narrative -->
+    <div style="padding:34px 40px; color:var(--bone);">
+      <div class="eyebrow yellow reveal" style="font-size:9px;">ACT TWO — THE DISCOVERY</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:12px;">
+        <div>
+          <p class="body reveal reveal-1" style="color:var(--bone); font-size:12.5px; line-height:1.6;">For a while, it is a dream. It runs smooth. It sails through the safety inspection. When your mechanic hands you a list of minor repairs, you pay the bill with a smile, convinced the storm has passed.</p>
+          <p class="body reveal reveal-1" style="color:var(--bone); font-size:12.5px; line-height:1.6; margin-top:6px;">Then you walk into <strong style="color:var(--signal);">ServiceOntario.</strong></p>
+          <p class="body reveal reveal-1" style="color:var(--bone); font-size:12.5px; line-height:1.6; margin-top:6px;">The clerk taps a few keys, looks at the screen, and looks at you with that particular brand of government-funded pity. <em style="color:var(--signal);">"The odometer reading is incorrect. Our system shows nearly double the mileage you have here."</em></p>
+        </div>
+        <div>
+          <p class="body reveal reveal-2" style="color:var(--bone); font-size:12.5px; line-height:1.6;">In that heartbeat, the truth hits. Your hard-earned money — the insurance, the safety, the labor, the <em>minor</em> repairs — is now buried in a car that has lived twice the life you were promised.</p>
+          <p class="body reveal reveal-2" style="color:var(--bone); font-size:12.5px; line-height:1.6; margin-top:6px; font-style:italic; color:var(--signal);">You did not just buy a vehicle. You bought a ghost.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-foot r" style="color:var(--bone); opacity:.7;">019 · A TRUE STORY</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 6 — CURBSIDERS · THE FOUR-STEP DEFENSE
+     Single-wide, dark, 4 cards
+     ================================================================== -->
+<section class="spread dark" id="defense" data-title="The Four-Step Defense">
+  <div class="page dark" style="grid-column:1 / 3; padding:56px 64px; position:relative;">
+    <div class="run-head" style="color:var(--bone); opacity:.5;"><span>CH. 02 · DEFENSE PROTOCOL</span><span class="line"></span><span>NO HEROES · NO SHORTCUTS</span></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:36px;">
+      <div>
+        <div class="eyebrow yellow reveal">A SURVIVAL PROTOCOL</div>
+        <h1 class="display reveal reveal-1" style="color:var(--bone); font-size:84px; line-height:.9; margin-top:10px;">
+          The <span style="color:var(--signal); font-style:italic;">Four-Step</span><br>Defense.
+        </h1>
+      </div>
+      <div style="font-family:var(--mono); font-size:11px; color:var(--signal); letter-spacing:.15em; text-align:right;">
+        FOLLOW IN ORDER<br>NO SHORTCUTS<br>NO HEROES
+      </div>
+    </div>
+
+    <div style="height:2px; background:var(--signal); width:100%; margin:30px 0 36px;"></div>
+
+    <!-- 4 defense cards -->
+    <div class="four-col">
+      <div class="reveal" style="border-top:4px solid var(--signal); padding-top:20px;">
+        <div class="chip yellow" style="margin-bottom:14px;">STEP 01</div>
+        <h3 class="display" style="color:var(--bone); font-size:24px;">The <em style="color:var(--signal);">Name</em> Game.</h3>
+        <p class="body" style="color:var(--bone); font-size:12.5px; margin-top:10px; line-height:1.6;">The name on the ownership papers must match the seller's name exactly. Not "close enough." Not "I'm selling this for my cousin." Doesn't match? Walk away. Every Curbsider's weakness is paperwork.</p>
+      </div>
+      <div class="reveal reveal-1" style="border-top:4px solid var(--signal); padding-top:20px;">
+        <div class="chip yellow" style="margin-bottom:14px;">STEP 02</div>
+        <h3 class="display" style="color:var(--bone); font-size:24px;">The <em style="color:var(--signal);">ID</em> Check.</h3>
+        <p class="body" style="color:var(--bone); font-size:12.5px; margin-top:10px; line-height:1.6;">No stories. No "I forgot my wallet" excuses. A legitimate seller has nothing to hide; a hustler has everything to lose. If the photo doesn't match the face, the deal doesn't match reality.</p>
+      </div>
+      <div class="reveal reveal-2" style="border-top:4px solid var(--signal); padding-top:20px;">
+        <div class="chip yellow" style="margin-bottom:14px;">STEP 03</div>
+        <h3 class="display" style="color:var(--bone); font-size:24px;">Weaponize <em style="color:var(--signal);">Information</em>.</h3>
+        <p class="body" style="color:var(--bone); font-size:12.5px; margin-top:10px; line-height:1.6;">Your phone is your greatest weapon. Carfax. VIN lookup. Lien check. Before you hand over a single cent, run a full diagnostic on the car's past. Sixty bucks is cheaper than sixty months of regret.</p>
+      </div>
+      <div class="reveal reveal-3" style="border-top:4px solid var(--signal); padding-top:20px;">
+        <div class="chip yellow" style="margin-bottom:14px;">STEP 04</div>
+        <h3 class="display" style="color:var(--bone); font-size:24px;">Follow <em style="color:var(--signal);">the</em><br>Paper Trail.</h3>
+        <p class="body" style="color:var(--bone); font-size:12.5px; margin-top:10px; line-height:1.6;">Slow down. Never rush a transaction. E-transfers, bank drafts, certified cheques only. If they insist on cash-only, right-now — they're outrunning the truth. Let them run. Just not with your money.</p>
+      </div>
+    </div>
+
+    <div class="pull reveal reveal-4" style="color:var(--bone); border-color:var(--signal); margin-top:36px; font-size:22px; text-align:center; padding:20px 0;">
+      <em style="color:var(--signal);">Trust your gut. If something feels off, it is.</em><br>Walk away. There will always be another car.
+    </div>
+
+    <div class="dept-tab yellow">SURVIVAL · 4 STEPS</div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">020 · CH. II · THE DEFENSE</div>
+    <div class="page-foot r" style="color:var(--bone); opacity:.7;">021 · WALK AWAY CLEAN</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 7 — CHAPTER 03 OPENER · THE ENGINE
+     Left: engine photo. Right: chapter title + smoke intro
+     ================================================================== -->
+<section class="spread" id="chap3" data-title="Ch. 03 · The Engine">
+  <div class="page bleed" style="background:var(--ink); position:relative;">
+    <div class="photo parallax" data-parallax="0.14" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/14472323/pexels-photo-14472323.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Classic car engine close-up" loading="lazy">
+      <div class="caption italic"><strong>PLATE III.</strong> The engine speaks four languages. You only need to recognize the words that warn you.</div>
+    </div>
+    <div style="position:absolute; bottom:48px; left:40px; right:40px; z-index:10;">
+      <div class="eyebrow yellow reveal">CHAPTER THREE</div>
+      <div class="feature-title reveal reveal-1" style="margin-top:14px;">A <span class="accent">Language</span><br><em>of</em> Light<br>&amp; Smoke.</div>
+    </div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">032 · CHAPTER III</div>
+  </div>
+
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CHAPTER III · THE ENGINE</span><span class="line"></span><span>PAGE 033</span></div>
+    <div style="position:absolute; top:40px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">03</div>
+
+    <div style="margin-top:70px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">SCANNING FOR SECRETS</div>
+      <h1 class="display reveal reveal-1" style="font-size:58px; margin-top:12px;">
+        Before You <span class="italic-red">Pop</span><br>The Hood.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:16px;">Most real problems only reveal themselves when you dig deeper — opening things up, inspecting the cylinder head, running proper tests. We're not here to tear engines apart like mad scientists. The smarter move is to learn how to read what comes out of the tailpipe.</div>
+    </div>
+
+    <div class="two-col reveal reveal-3" style="margin-top:30px;">
+      <div>
+        <p class="body">A well-running engine is quiet, clean, and consistent. It starts without drama, idles without shake, and accelerates without complaint. Anything else is the engine trying to tell you something.</p>
+        <p class="body" style="margin-top:10px;">Your job is to learn the four basic signals the engine sends before anything catastrophic happens. White smoke. Blue smoke. Black smoke. Strange noises. Master these four, and you'll catch 90% of expensive problems before they catch you.</p>
+      </div>
+      <div class="sidebox yellow">
+        <h4>THE FIRST RULE</h4>
+        <p style="font-family:var(--italic); font-style:italic; font-size:13.5px; line-height:1.55;">
+          Warm the engine before you scan. A cold engine hides a catalog of sins. A hot engine tells the truth. Idle for 10 minutes minimum before plugging in the OBD-II.
+        </p>
+      </div>
+    </div>
+
+    <div class="pull reveal reveal-4" style="margin-top:28px; font-size:22px;">
+      "Oil burning does not always show up on a scanner. A car can pass every scan and still be quietly drinking <em class="italic-red">oil like a daily latte.</em>"
+    </div>
+
+    <div class="dept-tab">CH. III · THE ENGINE</div>
+    <div class="page-foot r">033 · DIAGNOSTICS</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 8 — SMOKE COLOR STUDY
+     Four-plate specimen study of smoke colors
+     ================================================================== -->
+<section class="spread" id="smoke" data-title="The Colour Study">
+  <div class="page paper" style="grid-column:1 / 3; padding:56px 64px; position:relative;">
+    <div class="run-head"><span>CH. III · STUDY №01</span><span class="line"></span><span>COLOUR AS DIAGNOSIS</span></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:28px;">
+      <div>
+        <div class="eyebrow reveal">A COLOUR STUDY</div>
+        <h1 class="display reveal reveal-1" style="font-size:80px; line-height:.92; margin-top:10px;">
+          Blue <span class="italic-red">Smoke</span><br>&amp; Buried <span class="italic-red">Secrets</span>.
+        </h1>
+      </div>
+      <div class="dek reveal reveal-2" style="max-width:380px; text-align:right;">A compendium of exhaust colour — the single cheapest diagnostic test in motoring. Your nose sees more than an OBD-II ever will.</div>
+    </div>
+
+    <div style="height:3px; background:var(--ink); width:100%; margin:32px 0;"></div>
+
+    <!-- 4 smoke plates -->
+    <div class="four-col">
+      <div class="reveal">
+        <div style="aspect-ratio:1; background:radial-gradient(circle at 50% 45%, #fafafa 0%, #bbb 35%, #1a1715 90%); border-radius:50% / 50%; position:relative; overflow:hidden;"></div>
+        <div class="chip" style="margin-top:14px; background:var(--ink); color:var(--signal);">PLATE I</div>
+        <h3 class="display" style="font-size:26px; margin-top:8px;">White.</h3>
+        <p class="body" style="font-size:12px; margin-top:8px;">Coolant leaking into the combustion chambers. A head-gasket story — usually expensive, always urgent. Do not drive it home.</p>
+      </div>
+      <div class="reveal reveal-1">
+        <div style="aspect-ratio:1; background:radial-gradient(circle at 50% 45%, #a5c7e8 0%, #5683b0 35%, #1a1715 90%); border-radius:50% / 50%; position:relative; overflow:hidden;"></div>
+        <div class="chip" style="margin-top:14px; background:var(--ink); color:var(--signal);">PLATE II</div>
+        <h3 class="display" style="font-size:26px; margin-top:8px;">Blue.</h3>
+        <p class="body" style="font-size:12px; margin-top:8px;">Your engine is burning oil. Piston rings, valve seals — quietly drinking your wallet, one commute at a time. Walk. Or negotiate hard.</p>
+      </div>
+      <div class="reveal reveal-2">
+        <div style="aspect-ratio:1; background:radial-gradient(circle at 50% 45%, #3a3530 0%, #1a1715 50%, #000 90%); border-radius:50% / 50%; position:relative; overflow:hidden;"></div>
+        <div class="chip" style="margin-top:14px; background:var(--ink); color:var(--signal);">PLATE III</div>
+        <h3 class="display" style="font-size:26px; margin-top:8px;">Black.</h3>
+        <p class="body" style="font-size:12px; margin-top:8px;">Fuel mixture running too rich. The engine drinks more than its share; emissions rise, economy falls. Often cheap to fix — sometimes not.</p>
+      </div>
+      <div class="reveal reveal-3">
+        <div style="aspect-ratio:1; background:radial-gradient(circle at 50% 45%, #a09888 0%, #5a5248 35%, #1a1715 90%); border-radius:50% / 50%; position:relative; overflow:hidden;"></div>
+        <div class="chip" style="margin-top:14px; background:var(--ink); color:var(--signal);">PLATE IV</div>
+        <h3 class="display" style="font-size:26px; margin-top:8px;">Grey.</h3>
+        <p class="body" style="font-size:12px; margin-top:8px;">A stubborn mystery. Could be transmission fluid. Could be oil. Could be PCV valve. Dig deeper before you put down money.</p>
+      </div>
+    </div>
+
+    <div class="pull reveal reveal-4" style="margin-top:36px; text-align:center; border:none; font-size:24px; max-width:860px; margin-left:auto; margin-right:auto;">
+      "A well-running engine burns nothing you can see. Anything you <em class="italic-red">can</em> see is a message."
+    </div>
+
+    <div class="dept-tab">CH. III · THE COLOUR STUDY</div>
+    <div class="page-foot l">034 · SMOKE &amp; SECRETS</div>
+    <div class="page-foot r">035 · CARGUYS №001</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 9 — OBD-II ANATOMY OF A CODE
+     Left: OBD scanner photo + intro. Right: P-0-4-42 breakdown grid
+     ================================================================== -->
+<section class="spread" id="obd" data-title="Anatomy of a Code">
+  <div class="page" style="padding:0; position:relative;">
+    <div class="photo parallax duotone" data-parallax="0.11" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/8986145/pexels-photo-8986145.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Mechanic with diagnostic tool" loading="lazy">
+      <div class="tint" style="background:rgba(26,45,68,.45); mix-blend-mode:multiply;"></div>
+    </div>
+
+    <div style="position:absolute; top:56px; left:48px; right:48px; z-index:10;">
+      <div class="eyebrow yellow reveal">DIAGNOSTICS · SCHEMATIC</div>
+      <h1 class="display reveal reveal-1" style="color:var(--bone); font-size:64px; line-height:.92; margin-top:16px; text-shadow:0 4px 16px rgba(0,0,0,.5);">
+        OBD-II · <span style="color:var(--signal); font-style:italic;">The</span><br>Anatomy of<br>a <em style="color:var(--signal);">Code.</em>
+      </h1>
+    </div>
+
+    <!-- Caption bar bottom -->
+    <div style="position:absolute; bottom:40px; left:48px; right:48px; z-index:10; background:rgba(26,23,21,.88); color:var(--bone); padding:18px 22px; backdrop-filter:blur(4px);">
+      <div class="byline" style="color:var(--signal); opacity:1;">FIG. 03 · A SINGLE CODE</div>
+      <div class="dek" style="color:var(--bone); font-size:14px; margin-top:4px; opacity:.9;">Decoded letter by letter. This is <strong style="color:var(--signal);">P0442</strong> — a small evaporative emissions leak in the powertrain. The flashlight that finds the secret.</div>
+    </div>
+
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">036 · OBD-II</div>
+  </div>
+
+  <!-- RIGHT PAGE: P-0-4-42 anatomy grid -->
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CH. III · STUDY №02</span><span class="line"></span><span>THE DIAGNOSTIC PROTOCOL</span></div>
+
+    <div style="margin-top:36px;">
+      <div class="eyebrow reveal">READING A CODE</div>
+      <h2 class="display reveal reveal-1" style="font-size:36px; margin-top:10px;">You cannot argue <em class="italic-red">with</em> a computer.</h2>
+      <p class="body reveal reveal-2" style="margin-top:12px; font-size:13.5px;">The OBD-II system is the black box of your vehicle — constantly monitoring everything from fuel delivery to emissions. If the car is trying to hide a secret, this is the flashlight that finds it. Every code is five characters. Each character tells you where the problem lives.</p>
+    </div>
+
+    <!-- P-0-4-42 cards -->
+    <div class="four-col reveal reveal-3" style="margin-top:26px; gap:8px;">
+      <div style="background:var(--sand); padding:20px 14px; border-top:3px solid var(--red); text-align:center;">
+        <div style="font-family:var(--display); font-weight:900; font-size:64px; color:var(--red); line-height:.8;">P</div>
+        <div class="byline" style="margin-top:10px; color:var(--ink);">POSITION 1</div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12px; margin-top:4px;">The system<br><strong>Powertrain</strong></div>
+      </div>
+      <div style="background:var(--sand); padding:20px 14px; border-top:3px solid var(--red); text-align:center;">
+        <div style="font-family:var(--display); font-weight:900; font-size:64px; color:var(--ink); line-height:.8;">0</div>
+        <div class="byline" style="margin-top:10px; color:var(--ink);">POSITION 2</div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12px; margin-top:4px;">The subsystem<br><strong>Generic code</strong></div>
+      </div>
+      <div style="background:var(--sand); padding:20px 14px; border-top:3px solid var(--red); text-align:center;">
+        <div style="font-family:var(--display); font-weight:900; font-size:64px; color:var(--ink); line-height:.8;">4</div>
+        <div class="byline" style="margin-top:10px; color:var(--ink);">POSITION 3</div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12px; margin-top:4px;">The fault type<br><strong>Emissions</strong></div>
+      </div>
+      <div style="background:var(--sand); padding:20px 14px; border-top:3px solid var(--red); text-align:center;">
+        <div style="font-family:var(--display); font-weight:900; font-size:54px; color:var(--ink); line-height:.8;">42</div>
+        <div class="byline" style="margin-top:10px; color:var(--ink);">POSITIONS 4 &amp; 5</div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12px; margin-top:4px;">The specific<br><strong>EVAP leak</strong></div>
+      </div>
+    </div>
+
+    <!-- Four houses -->
+    <div class="reveal reveal-4" style="margin-top:30px;">
+      <div class="eyebrow">WHERE THE CRIME OCCURRED</div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:14px;">
+        <div>
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red);">P</div>
+          <div class="byline">POWERTRAIN</div>
+          <div style="font-size:11px; margin-top:4px;">Engine, transmission, fuel. Most common, most consequential.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red);">B</div>
+          <div class="byline">BODY</div>
+          <div style="font-size:11px; margin-top:4px;">Cabin, airbags, seating, climate. Comforts and their problems.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red);">C</div>
+          <div class="byline">CHASSIS</div>
+          <div style="font-size:11px; margin-top:4px;">Brakes, steering, suspension. Safety at speed.</div>
+        </div>
+        <div>
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red);">U</div>
+          <div class="byline">NETWORK</div>
+          <div style="font-size:11px; margin-top:4px;">The brain. Communication between modules. Silent failures.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab">DIAGNOSTICS · PROTOCOL</div>
+    <div class="page-foot r">037 · ANATOMY OF A CODE</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 10 — P-CODES FAULT DICTIONARY
+     Single-wide page, 4 cards in 2x2 grid
+     ================================================================== -->
+<section class="spread" id="pcodes" data-title="P-Codes · Fault Dictionary">
+  <div class="page paper" style="grid-column:1 / 3; padding:56px 72px; position:relative;">
+    <div class="run-head"><span>CH. III · REFERENCE</span><span class="line"></span><span>THE FAULT DICTIONARY</span></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:28px;">
+      <div>
+        <div class="eyebrow reveal">THE USUAL SUSPECTS</div>
+        <h1 class="display reveal reveal-1" style="font-size:76px; margin-top:10px;">
+          P-Codes · <span class="italic-red">The</span><br>Powertrain.
+        </h1>
+      </div>
+      <div class="dek reveal reveal-2" style="max-width:420px; text-align:right;">These four codes are your vehicle's way of telling you something is affecting its heart — the systems that move you from point A to point B. Worth committing to memory.</div>
+    </div>
+
+    <div style="height:3px; background:var(--ink); margin:30px 0;"></div>
+
+    <!-- 2x2 grid of P-code cards -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+      <div class="reveal" style="border-left:4px solid var(--red); padding-left:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; letter-spacing:-.02em;">P0300</div>
+          <span class="chip">HIGH RISK</span>
+        </div>
+        <h3 class="display" style="font-size:22px;">Random <em class="italic-red">or</em> Multiple Cylinder Misfire.</h3>
+        <p class="body" style="margin-top:10px; font-size:12.5px;">The engine's combustion process is interrupted. Instead of a smooth cycle, one or more cylinders are failing to fire correctly — and the car knows it.</p>
+        <div style="margin-top:12px; display:grid; grid-template-columns:80px 1fr; gap:6px 14px; font-size:11.5px;">
+          <div class="byline" style="color:var(--red);">CAUSES</div><div>Worn spark plugs, failing ignition coils, faulty injectors, or vacuum leaks.</div>
+          <div class="byline" style="color:var(--red);">SENSATION</div><div>Rough idle, reduced power, poor fuel economy.</div>
+        </div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12.5px; margin-top:12px; padding-top:10px; border-top:1px dotted rgba(0,0,0,.3); color:var(--red);">Never ignore. Prolonged misfires kill engines — and catalytic converters.</div>
+      </div>
+
+      <div class="reveal reveal-1" style="border-left:4px solid var(--red); padding-left:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; letter-spacing:-.02em;">P0171 · P0174</div>
+          <span class="chip">SERIOUS</span>
+        </div>
+        <h3 class="display" style="font-size:22px;">System <em class="italic-red">Too</em> Lean.</h3>
+        <p class="body" style="margin-top:10px; font-size:12.5px;">The engine is operating with an incorrect air-fuel ratio — too much air, not enough fuel to combust properly. Every combustion cycle runs hot.</p>
+        <div style="margin-top:12px; display:grid; grid-template-columns:80px 1fr; gap:6px 14px; font-size:11.5px;">
+          <div class="byline" style="color:var(--red);">CAUSES</div><div>Vacuum leaks, faulty mass airflow sensor, or fuel-pressure issues.</div>
+          <div class="byline" style="color:var(--red);">SENSATION</div><div>Hesitation during acceleration, reduced performance.</div>
+        </div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12.5px; margin-top:12px; padding-top:10px; border-top:1px dotted rgba(0,0,0,.3); color:var(--red);">Running lean raises internal temperatures. Long-term damage accrues quietly.</div>
+      </div>
+
+      <div class="reveal reveal-2" style="border-left:4px solid var(--red); padding-left:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; letter-spacing:-.02em;">P0420 · P0430</div>
+          <span class="chip">FINANCIAL</span>
+        </div>
+        <h3 class="display" style="font-size:22px;">Catalyst Efficiency <em class="italic-red">Below</em> Threshold.</h3>
+        <p class="body" style="margin-top:10px; font-size:12.5px;">The catalytic converter is no longer cleaning exhaust gases effectively. The car may feel fine — but the wallet will not.</p>
+        <div style="margin-top:12px; display:grid; grid-template-columns:80px 1fr; gap:6px 14px; font-size:11.5px;">
+          <div class="byline" style="color:var(--red);">CAUSES</div><div>Failing catalytic converter, faulty oxygen sensors, or exhaust leaks.</div>
+          <div class="byline" style="color:var(--red);">SENSATION</div><div>Normal driving, rising emissions, dropping fuel economy.</div>
+        </div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12.5px; margin-top:12px; padding-top:10px; border-top:1px dotted rgba(0,0,0,.3); color:var(--red);">Catalytic converters are expensive. Factor it into any valuation.</div>
+      </div>
+
+      <div class="reveal reveal-3" style="border-left:4px solid var(--red); padding-left:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <div style="font-family:var(--display); font-weight:900; font-size:40px; letter-spacing:-.02em;">P0440 · P0455</div>
+          <span class="chip yellow">LOW RISK</span>
+        </div>
+        <h3 class="display" style="font-size:22px;">EVAP System <em class="italic-red">Leak.</em></h3>
+        <p class="body" style="margin-top:10px; font-size:12.5px;">The evaporative emission system is designed to trap fuel vapours before they escape into the atmosphere. Something, somewhere, is leaking.</p>
+        <div style="margin-top:12px; display:grid; grid-template-columns:80px 1fr; gap:6px 14px; font-size:11.5px;">
+          <div class="byline" style="color:var(--red);">CAUSES</div><div>A loose or damaged gas cap, or a leak in the fuel-vapour hoses.</div>
+          <div class="byline" style="color:var(--red);">SENSATION</div><div>Nothing, usually. It is an emissions issue, not a driveability one.</div>
+        </div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:12.5px; margin-top:12px; padding-top:10px; border-top:1px dotted rgba(0,0,0,.3); color:var(--red);">Primarily environmental and compliance-related. Rarely a mechanical threat.</div>
+      </div>
+    </div>
+
+    <div class="dept-tab">FAULT DICTIONARY · P-CODES</div>
+    <div class="page-foot l">038 · POWERTRAIN</div>
+    <div class="page-foot r">039 · THE USUAL SUSPECTS</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 11 — CHAPTER 04 OPENER · THE GEARBOX
+     Left: gearbox/interior photo. Right: 3 pillars + symptoms intro
+     ================================================================== -->
+<section class="spread" id="chap4" data-title="Ch. 04 · The Gearbox">
+  <div class="page bleed" style="background:var(--ink); position:relative;">
+    <div class="photo parallax duotone" data-parallax="0.13" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/17980590/pexels-photo-17980590.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Classic car interior" loading="lazy">
+      <div class="tint"></div>
+      <div class="caption italic"><strong>PLATE IV.</strong> A transmission speaks in feel before it speaks in codes.</div>
+    </div>
+    <div style="position:absolute; bottom:48px; left:40px; right:40px; z-index:10;">
+      <div class="eyebrow yellow reveal">CHAPTER FOUR</div>
+      <div class="feature-title reveal reveal-1" style="margin-top:14px;">Three <span class="accent">Pillars.</span><br>One <em>Gearbox.</em></div>
+    </div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">046 · CHAPTER IV</div>
+  </div>
+
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CHAPTER IV · TRANSMISSION</span><span class="line"></span><span>PAGE 047</span></div>
+    <div style="position:absolute; top:40px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">04</div>
+
+    <div style="margin-top:70px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">THE SILENT KILLERS</div>
+      <h1 class="display reveal reveal-1" style="font-size:56px; margin-top:12px;">
+        Slips, Bangs <span class="italic-red">&amp;</span><br>The Right Scanner.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:16px;">A basic code reader will not save you here. The transmission speaks three dialects, and none of them are caught by a twenty-dollar tool from the auto-parts store.</div>
+    </div>
+
+    <!-- 3 pillars -->
+    <div class="reveal reveal-3" style="margin-top:28px; display:grid; grid-template-columns:1fr; gap:14px;">
+      <div style="display:grid; grid-template-columns:48px 1fr; gap:18px; align-items:start; padding:14px 0; border-bottom:1px dotted rgba(0,0,0,.3);">
+        <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red); line-height:.9;">I.</div>
+        <div>
+          <h3 class="display" style="font-size:22px;">Fluid <em class="italic-red">Is</em> Health.</h3>
+          <p style="font-family:var(--sans); font-size:12.5px; line-height:1.55; margin-top:4px;">Pull the dipstick warm. Pink or red means alive; brown or burnt means dying; cloudy means coolant contamination. The fluid is the blood — and the blood never lies.</p>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:48px 1fr; gap:18px; align-items:start; padding:14px 0; border-bottom:1px dotted rgba(0,0,0,.3);">
+        <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red); line-height:.9;">II.</div>
+        <div>
+          <h3 class="display" style="font-size:22px;">Shift <em class="italic-red">Quality</em> Is Truth.</h3>
+          <p style="font-family:var(--sans); font-size:12.5px; line-height:1.55; margin-top:4px;">A healthy transmission shifts smoothly, predictably, and without drama. Hesitation, slamming, or flaring between gears is the transmission screaming for attention — in a language most scanners cannot hear.</p>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:48px 1fr; gap:18px; align-items:start; padding:14px 0;">
+        <div style="font-family:var(--display); font-weight:900; font-size:40px; color:var(--red); line-height:.9;">III.</div>
+        <div>
+          <h3 class="display" style="font-size:22px;">Temperature <em class="italic-red">Is</em> Life.</h3>
+          <p style="font-family:var(--sans); font-size:12.5px; line-height:1.55; margin-top:4px;">Heat is the silent killer. Overheated fluid breaks down, and once it does, the damage is cumulative and irreversible. A cheap transmission cooler is a very expensive insurance policy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab">CH. IV · GEARBOX</div>
+    <div class="page-foot r">047 · THREE PILLARS</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 12 — THE SYMPTOM DICTIONARY (TRANSMISSION FEEL TEST)
+     Single-wide, full-page dictionary of 5 symptoms
+     ================================================================== -->
+<section class="spread" id="symptoms" data-title="The Symptom Dictionary">
+  <div class="page paper" style="grid-column:1 / 3; padding:56px 72px; position:relative;">
+    <div class="run-head"><span>CH. IV · FIELD GUIDE</span><span class="line"></span><span>NO TOOLS REQUIRED</span></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:28px;">
+      <div>
+        <div class="eyebrow reveal">THE FEEL TEST</div>
+        <h1 class="display reveal reveal-1" style="font-size:74px; line-height:.9; margin-top:10px;">
+          When <span class="italic-red">You</span> Have No<br>Tools, <span class="italic-red">The Car</span><br>Will Tell You.
+        </h1>
+      </div>
+      <div class="dek reveal reveal-2" style="max-width:380px; text-align:right;">Without a diagnostic tool, the transmission communicates through physical feedback. Learning to recognize these sensations is your first line of defence — long before a code reader ever lights up.</div>
+    </div>
+
+    <div style="height:3px; background:var(--ink); margin:32px 0;"></div>
+
+    <!-- 5 symptoms table -->
+    <table class="data reveal reveal-3">
+      <thead>
+        <tr><th style="width:22%;">THE FEELING</th><th>WHAT IT MEANS</th><th style="width:22%; text-align:right;">ASSOCIATED</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="drama">The <em>Slip</em><br>&amp; Flare</td>
+          <td>The hallmark of internal wear. During acceleration, engine RPM surges suddenly — a "flare" — but the vehicle's speed lags, as if the transmission has momentarily shifted into neutral. The transmission <em>lets go</em> before finally catching. A direct warning of clutch or band failure.</td>
+          <td style="text-align:right;"><span class="chip ink">P0730</span></td>
+        </tr>
+        <tr>
+          <td class="drama">The <em>Harsh</em><br>Engagement</td>
+          <td>Instead of a smooth transition, gear changes feel like a sudden jolt — a violent clunk, or a rhythmic shudder, especially when the torque converter attempts to lock up in higher gears. Indicates a failure in shift control, typically a malfunctioning solenoid or improper fluid pressure.</td>
+          <td style="text-align:right;"><span class="chip ink">P0750 SERIES</span></td>
+        </tr>
+        <tr>
+          <td class="drama">The <em>Delayed</em><br>Shift</td>
+          <td>When moving the selector from Park to Drive or Reverse, the vehicle hesitates for several seconds before clunking into gear. A classic sign of low fluid pressure — a clogged internal filter, a failing pump, or a critically low fluid level.</td>
+          <td style="text-align:right;"><span class="chip ink">LOW-PRESSURE FAULT</span></td>
+        </tr>
+        <tr>
+          <td class="drama">The <em>Missing</em><br>Gear</td>
+          <td>The transmission skips a gear entirely — first directly to third — or refuses to enter overdrive, forcing the engine to run at high RPMs at highway speeds. Usually signals a specific solenoid failure or a blockage within the valve body.</td>
+          <td style="text-align:right;"><span class="chip ink">VALVE-BODY FAULT</span></td>
+        </tr>
+        <tr>
+          <td class="drama"><em>Limp</em><br>/ Fail-Safe</td>
+          <td>To prevent catastrophic damage, the TCM locks the transmission into a default state — usually second or third gear. You will experience significant loss of power and an inability to shift through the full range. A protective measure triggered by critical faults.</td>
+          <td style="text-align:right;"><span class="chip ink">P0700</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pull reveal reveal-4" style="margin-top:28px; text-align:center; border:none; font-size:22px; max-width:840px; margin-left:auto; margin-right:auto; font-style:italic;">
+      Learning these sensations is your <em class="italic-red">first line of defence</em>. By the time the computer throws a code, the fluid has already suffered.
+    </div>
+
+    <div class="dept-tab">CH. IV · THE FEEL TEST</div>
+    <div class="page-foot l">050 · TRANSMISSION</div>
+    <div class="page-foot r">051 · A FEEL-BASED GUIDE</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 13 — CHAPTER 05 OPENER · BODY & PAINT FORENSICS
+     Left: photo of car paint/detail. Right: 3 forensic columns
+     ================================================================== -->
+<section class="spread" id="chap5" data-title="Ch. 05 · Paint Forensics">
+  <div class="page bleed" style="background:var(--ink); position:relative;">
+    <div class="photo parallax" data-parallax="0.12" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/36424970/pexels-photo-36424970.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Red Dodge Charger close-up" loading="lazy">
+      <div class="caption italic"><strong>PLATE V.</strong> Paint tells a story in three layers. Forensics is just knowing which one to read.</div>
+    </div>
+    <div style="position:absolute; bottom:48px; left:40px; right:40px; z-index:10;">
+      <div class="eyebrow yellow reveal">CHAPTER FIVE</div>
+      <div class="feature-title reveal reveal-1" style="margin-top:14px;">Body <span class="accent">&amp;</span> Paint<br>Forensics.</div>
+    </div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">060 · CHAPTER V</div>
+  </div>
+
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CHAPTER V · PAINT</span><span class="line"></span><span>PAGE 061</span></div>
+    <div style="position:absolute; top:40px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">05</div>
+
+    <div style="margin-top:70px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">THREE FORENSIC COLUMNS</div>
+      <h1 class="display reveal reveal-1" style="font-size:54px; margin-top:12px;">
+        Why the <span class="italic-red">Perfect</span><br>Repair Is Rare.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:16px;">A repair is only as invisible as the paint-depth gauge. Three inspection points — panels, alignment, and light — expose almost every resprayed lie a car can tell you.</div>
+    </div>
+
+    <div class="three-col reveal reveal-3" style="margin-top:30px;">
+      <div>
+        <div class="chip" style="background:var(--ink); color:var(--signal); margin-bottom:10px;">COLUMN I</div>
+        <h4 class="display" style="font-size:20px;">The <em class="italic-red">Panel</em> Test.</h4>
+        <p style="font-family:var(--sans); font-size:11.5px; line-height:1.55; margin-top:8px;">Stand at the front of the car. Sight down each panel at a shallow angle. Ripples, waves, or uneven reflections in sunlight mean bodywork. Factory paint is flat. Respray is never <em>quite</em> flat.</p>
+      </div>
+      <div>
+        <div class="chip" style="background:var(--ink); color:var(--signal); margin-bottom:10px;">COLUMN II</div>
+        <h4 class="display" style="font-size:20px;">The <em class="italic-red">Gap</em> Test.</h4>
+        <p style="font-family:var(--sans); font-size:11.5px; line-height:1.55; margin-top:8px;">Panel gaps should be uniform. Around doors, hood, and trunk, they should measure the same width along the entire length. Widening or narrowing gaps means the panel was replaced or realigned after an impact.</p>
+      </div>
+      <div>
+        <div class="chip" style="background:var(--ink); color:var(--signal); margin-bottom:10px;">COLUMN III</div>
+        <h4 class="display" style="font-size:20px;">The <em class="italic-red">Shade</em> Test.</h4>
+        <p style="font-family:var(--sans); font-size:11.5px; line-height:1.55; margin-top:8px;">Factory paint cures identically across the whole vehicle. If one panel looks subtly different — slightly darker, lighter, more metallic — that panel was painted separately. Always check in direct sunlight.</p>
+      </div>
+    </div>
+
+    <div class="sidebox teal reveal reveal-4" style="margin-top:26px;">
+      <h4>THE MAGNET TEST</h4>
+      <div style="font-family:var(--italic); font-style:italic; font-size:13px;">
+        Bring a small magnet. A legitimate steel panel holds it firmly. Bondo or filler weakens the hold. A magnet that slides off any panel is telling you exactly where the damage was.
+      </div>
+    </div>
+
+    <div class="dept-tab">CH. V · PAINT</div>
+    <div class="page-foot r">061 · FORENSICS</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 14 — CHAPTER 06 · BRAKES
+     Left: fluid chart + ABS codes. Right: brakes diagnosis essay
+     ================================================================== -->
+<section class="spread" id="chap6" data-title="Ch. 06 · Brakes">
+  <div class="page paper" style="position:relative;">
+    <div class="run-head"><span>CHAPTER VI · BRAKES</span><span class="line"></span><span>PAGE 072</span></div>
+    <div style="position:absolute; top:40px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">06</div>
+
+    <div style="margin-top:70px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">THE LAST LINE OF DEFENSE</div>
+      <h1 class="display reveal reveal-1" style="font-size:56px; margin-top:12px;">
+        The <span class="italic-red">Fluid</span><br>Tells the Story.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:16px;">Brake fluid absorbs water the moment the system is opened. After two years, it has usually absorbed enough moisture to corrode lines from the inside. Colour is the only early warning you get.</div>
+    </div>
+
+    <!-- Brake fluid color chart -->
+    <div class="reveal reveal-3" style="margin-top:26px;">
+      <div class="eyebrow">THE BRAKE FLUID SPECTRUM</div>
+      <table class="data" style="margin-top:12px;">
+        <tbody>
+          <tr>
+            <td style="width:32px;"><div style="width:22px; height:22px; background:#ebd688; border-radius:50%; border:1px solid rgba(0,0,0,.15);"></div></td>
+            <td class="drama" style="width:28%;">Straw Gold</td>
+            <td>Fresh. Recently flushed. The system is in good health.</td>
+          </tr>
+          <tr>
+            <td><div style="width:22px; height:22px; background:#b8873b; border-radius:50%;"></div></td>
+            <td class="drama">Amber</td>
+            <td>Normal wear. Due for a flush within the next 12 months.</td>
+          </tr>
+          <tr>
+            <td><div style="width:22px; height:22px; background:#6a4520; border-radius:50%;"></div></td>
+            <td class="drama">Dark Brown</td>
+            <td>Overdue. Moisture saturation is damaging internal components.</td>
+          </tr>
+          <tr>
+            <td><div style="width:22px; height:22px; background:#1c1410; border-radius:50%;"></div></td>
+            <td class="drama" style="color:var(--red);">Black / Sludge</td>
+            <td style="font-style:italic;">Do not drive. Full system flush required. Master cylinder may be compromised.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dept-tab">CH. VI · BRAKES</div>
+    <div class="page-foot l">072 · BRAKES</div>
+  </div>
+
+  <div class="page" style="padding:0; position:relative;">
+    <div class="photo parallax" data-parallax="0.1" style="position:absolute; top:0; left:0; right:0; height:50%;">
+      <img src="https://images.pexels.com/photos/16124157/pexels-photo-16124157.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Green brake caliper close-up" loading="lazy">
+      <div class="caption italic"><strong>PLATE VI.</strong> The brake caliper — where physics gets expensive.</div>
+    </div>
+
+    <div style="position:absolute; top:50%; left:0; right:0; bottom:0; padding:36px 44px; background:var(--bone);">
+      <div class="eyebrow reveal">ABS CODE FAMILY</div>
+      <h3 class="display reveal reveal-1" style="font-size:30px; margin-top:8px;">
+        The <span class="italic-red">C-</span> Codes.
+      </h3>
+      <div class="dek reveal reveal-2" style="margin-top:10px; font-size:16px;">When an ABS code starts with C, you're in the chassis family — wheel speed sensors, hydraulic modulators, pedal feel. None of them are cheap, and all of them are safety-critical.</div>
+
+      <div class="reveal reveal-3" style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:14px 22px; font-family:var(--sans); font-size:11.5px;">
+        <div><strong>C0035 / C0040</strong><br>Front wheel speed sensor fault. Erratic ABS activation.</div>
+        <div><strong>C0110</strong><br>Pump motor circuit. ABS light stays on.</div>
+        <div><strong>C0265</strong><br>Module control fault. System disabled.</div>
+        <div><strong>C1210</strong><br>Lateral accelerometer. Stability control unreliable.</div>
+      </div>
+
+      <div class="pull reveal reveal-4" style="margin-top:22px; font-size:20px;">
+        "Pedal <em class="italic-red">feel</em> is the first code that fires. The scanner is just catching up."
+      </div>
+    </div>
+
+    <div class="dept-tab">CH. VI · THE C-CODES</div>
+    <div class="page-foot r">073 · STOPPING POWER</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 15 — CHAPTER 07 · TIRES & RIMS · 5-MINUTE CHECK + DOT DECODER
+     Left: tire photo + 5-minute check. Right: DOT date reader
+     ================================================================== -->
+<section class="spread" id="chap7" data-title="Ch. 07 · Tires">
+  <div class="page paper" style="padding:0; position:relative;">
+    <div class="photo parallax" data-parallax="0.12" style="position:absolute; top:0; left:0; right:0; height:45%;">
+      <img src="https://images.pexels.com/photos/31574041/pexels-photo-31574041.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Car tire and wheel rim on road" loading="lazy">
+      <div class="caption italic"><strong>PLATE VII.</strong> Four hands of rubber. The only parts of the car that touch the earth.</div>
+    </div>
+
+    <div style="position:absolute; top:45%; left:0; right:0; bottom:0; padding:32px 44px;">
+      <div class="run-head" style="position:absolute; top:14px; left:44px; right:44px;"><span>CHAPTER VII · TIRES &amp; RIMS</span><span class="line"></span><span>PAGE 086</span></div>
+      <div style="margin-top:22px;">
+        <div class="eyebrow reveal">THE ONLY FOUR THINGS TOUCHING THE ROAD</div>
+        <h1 class="display reveal reveal-1" style="font-size:44px; margin-top:8px;">
+          Four <em class="italic-red">Contact</em><br>Patches.
+        </h1>
+        <div class="dek reveal reveal-2" style="margin-top:10px; font-size:15px;">Sidewalls. Tread depth. Tire age. Rim integrity. An inspection is not ceremony — it is the cheapest safety instrument you own.</div>
+      </div>
+
+      <div class="reveal reveal-3" style="margin-top:20px;">
+        <div class="eyebrow" style="font-size:9px;">THE FIVE-MINUTE CHECK</div>
+        <div class="five-col" style="margin-top:10px;">
+          <div style="border-top:3px solid var(--red); padding-top:10px;">
+            <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">i.</div>
+            <div style="font-family:var(--sans); font-size:11px; line-height:1.45; margin-top:4px;">No bulges, cuts, or cracks.</div>
+          </div>
+          <div style="border-top:3px solid var(--red); padding-top:10px;">
+            <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">ii.</div>
+            <div style="font-family:var(--sans); font-size:11px; line-height:1.45; margin-top:4px;">Tread safe (coin test).</div>
+          </div>
+          <div style="border-top:3px solid var(--red); padding-top:10px;">
+            <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">iii.</div>
+            <div style="font-family:var(--sans); font-size:11px; line-height:1.45; margin-top:4px;">DOT age under 5–6 years.</div>
+          </div>
+          <div style="border-top:3px solid var(--red); padding-top:10px;">
+            <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">iv.</div>
+            <div style="font-family:var(--sans); font-size:11px; line-height:1.45; margin-top:4px;">Pressure correct — when cold.</div>
+          </div>
+          <div style="border-top:3px solid var(--red); padding-top:10px;">
+            <div style="font-family:var(--italic); font-style:italic; color:var(--red); font-size:22px;">v.</div>
+            <div style="font-family:var(--sans); font-size:11px; line-height:1.45; margin-top:4px;">Rims: no bends, cracks, welds.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab yellow">CH. VII · CONTACT PATCHES</div>
+    <div class="page-foot l">086 · TIRES &amp; RIMS</div>
+  </div>
+
+  <!-- RIGHT PAGE: DOT date decoder -->
+  <div class="page" style="position:relative; background:var(--ink); color:var(--bone);">
+    <div class="run-head" style="color:var(--bone); opacity:.5;"><span>READING THE BIRTH CERTIFICATE</span><span class="line"></span><span>DOT CODE</span></div>
+
+    <div style="margin-top:36px;">
+      <div class="eyebrow yellow reveal">READING THE BIRTH CERTIFICATE</div>
+      <h2 class="display reveal reveal-1" style="color:var(--bone); font-size:54px; margin-top:10px;">
+        The DOT <span style="color:var(--signal); font-style:italic;">Date</span><br>Code.
+      </h2>
+      <div class="dek reveal reveal-2" style="color:var(--bone); opacity:.9; margin-top:14px; font-size:16px;">Tires age even with good tread. Find the DOT code on the sidewall — the last four digits are the date stamp. A tire born in the wrong decade is a tire worth walking away from.</div>
+    </div>
+
+    <!-- Stamp visualization -->
+    <div class="reveal reveal-3" style="margin-top:28px; display:flex; align-items:center; gap:20px;">
+      <div style="background:rgba(243,239,230,.08); border:2px solid var(--signal); padding:18px 22px; display:inline-block; font-family:var(--mono); font-size:24px; letter-spacing:.08em; color:var(--bone);">
+        DOT &nbsp;XXXXXX &nbsp;<span style="background:var(--signal); color:var(--ink); padding:4px 10px; font-weight:700;">3523</span>
+      </div>
+      <div style="flex:1; font-family:var(--italic); font-style:italic; font-size:15px; color:var(--bone); opacity:.9;">
+        Read the last four digits. They are the only numbers on a tire that tell the truth.
+      </div>
+    </div>
+
+    <!-- Decoded -->
+    <div class="reveal reveal-4" style="margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div>
+        <div class="eyebrow yellow" style="font-size:9px;">DECODED</div>
+        <div style="font-family:var(--sans); font-size:13px; line-height:1.6; margin-top:6px; color:var(--bone);">
+          <strong style="color:var(--signal);">35</strong> = the 35th week of the year<br>
+          <strong style="color:var(--signal);">23</strong> = the year 2023
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow yellow" style="font-size:9px;">TRANSLATION</div>
+        <div style="font-family:var(--italic); font-style:italic; font-size:13.5px; margin-top:6px; color:var(--bone);">
+          Tire manufactured late August or early September, 2023.
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebox ink reveal reveal-5" style="margin-top:24px;">
+      <h4>REPLACEMENT WINDOW</h4>
+      <div style="font-family:var(--italic); font-style:italic; font-size:13px; color:var(--bone);">
+        Six to ten years from the manufacture date, regardless of tread condition. Rubber compounds degrade from the inside out. A bulge is never normal. If you see one, replace the tire — immediately. No exceptions.
+      </div>
+    </div>
+
+    <div class="dept-tab ink">DOT DATE · DECODED</div>
+    <div class="page-foot r" style="color:var(--bone); opacity:.7;">087 · TIRES &amp; RIMS</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 16 — CHAPTER 08 · STEERING FAULT DECODER
+     Left: steering wheel photo + opener. Right: fault table
+     ================================================================== -->
+<section class="spread" id="chap8" data-title="Ch. 08 · Steering">
+  <div class="page bleed" style="background:var(--ink); position:relative;">
+    <div class="photo parallax" data-parallax="0.13" style="position:absolute; inset:0;">
+      <img src="https://images.pexels.com/photos/12061174/pexels-photo-12061174.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Ford Mustang steering wheel" loading="lazy">
+      <div class="caption italic"><strong>PLATE VIII.</strong> When the wheel is just a suggestion — call a tow truck.</div>
+    </div>
+    <div style="position:absolute; bottom:48px; left:40px; right:40px; z-index:10;">
+      <div class="eyebrow yellow reveal">CHAPTER EIGHT</div>
+      <div class="feature-title reveal reveal-1" style="margin-top:14px;">The <span class="accent">Steering</span><br>System.</div>
+    </div>
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">098 · CHAPTER VIII</div>
+  </div>
+
+  <div class="page paper" style="padding:48px 44px; position:relative;">
+    <div class="run-head"><span>CH. VIII · STEERING</span><span class="line"></span><span>THE FAULT DECODER</span></div>
+    <div style="position:absolute; top:40px; right:48px; font-family:var(--display); font-weight:900; font-size:280px; line-height:.8; color:var(--red); opacity:.08; pointer-events:none;">08</div>
+
+    <div style="margin-top:50px; position:relative; z-index:2;">
+      <div class="eyebrow reveal">AN ANATOMICAL BRIEF</div>
+      <h1 class="display reveal reveal-1" style="font-size:48px; margin-top:10px;">
+        Core <span class="italic-red">Components</span>.
+      </h1>
+      <div class="dek reveal reveal-2" style="margin-top:12px; font-size:15px;">The only thing between a scenic drive and a surprise off-roading expedition. When steering acts up, it is not being noisy — it is <em>staging a mutiny.</em></div>
+    </div>
+
+    <!-- Fault decoder table -->
+    <div class="reveal reveal-3" style="margin-top:20px;">
+      <h3 class="display" style="font-size:26px;">The <span class="italic-red">Fault</span> Decoder.</h3>
+      <table class="data" style="margin-top:10px;">
+        <thead>
+          <tr><th>THE DRAMA</th><th>THE CULPRIT</th><th>THE RED FLAG</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="drama">The Gym Workout</td>
+            <td>Low fluid or a dead PS pump.</td>
+            <td class="warn">Wrestling 4,000 pounds of metal. Safety nightmare in tight turns.</td>
+          </tr>
+          <tr>
+            <td class="drama">The Screamer</td>
+            <td>Air in the lines, or a dying pump.</td>
+            <td class="warn">Your pump is cavitating. Metal-on-metal is never a happy sound.</td>
+          </tr>
+          <tr>
+            <td class="drama">The Knocker</td>
+            <td>Worn tie rods or loose rack mounts.</td>
+            <td class="warn">Parts are physically banging together. You are losing precision by the mile.</td>
+          </tr>
+          <tr>
+            <td class="drama">The Shakes</td>
+            <td>Tire imbalance or worn tie rods.</td>
+            <td class="warn">Your car has the chills. Either a $20 balance — or a $200 part.</td>
+          </tr>
+          <tr>
+            <td class="drama">The Slop</td>
+            <td>Internal rack failure or worn U-joints.</td>
+            <td class="warn" style="color:var(--red); font-weight:600;"><strong>DANGER.</strong> Your steering wheel is now just a suggestion.</td>
+          </tr>
+          <tr>
+            <td class="drama">The Grinder</td>
+            <td>Worn clock spring behind the wheel.</td>
+            <td class="warn">If this snaps, your airbag will not deploy. Fix it immediately.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dept-tab">CH. VIII · FAULT DECODER</div>
+    <div class="page-foot r">099 · STEERING</div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SPREAD 17 — CLOSING REMARKS · THE LAST TOOL IS YOUR GUT
+     Dark full spread with signature
+     ================================================================== -->
+<section class="spread dark" id="closing" data-title="Closing Remarks">
+  <div class="page dark" style="position:relative;">
+    <div class="run-head" style="color:var(--bone); opacity:.5;"><span>BACK OF BOOK</span><span class="line"></span><span>THE FINAL WORD</span></div>
+
+    <div style="margin-top:60px;">
+      <div class="eyebrow yellow reveal">CLOSING REMARKS · №001</div>
+      <h1 class="display reveal reveal-1" style="color:var(--bone); font-size:88px; line-height:.9; margin-top:14px;">
+        The Last <span style="color:var(--signal); font-style:italic;">Tool</span><br>Is Your <span style="color:var(--signal); font-style:italic;">Gut.</span>
+      </h1>
+      <div style="height:2px; background:var(--signal); width:100px; margin:22px 0;"></div>
+    </div>
+
+    <div class="dek reveal reveal-2" style="color:var(--bone); font-size:19px;">
+      Every chapter of this manual has sharpened a specific skill. Every code, every sound, every overspray-speckled door frame gives you another piece of the puzzle.
+    </div>
+
+    <p class="body reveal reveal-3" style="color:var(--bone); margin-top:20px;">But the single most important instrument you will ever use is not a scanner or a depth gauge. It is the quiet voice that taps you on the shoulder and says — <em style="color:var(--signal);">something is off.</em></p>
+    <p class="body reveal reveal-3" style="color:var(--bone); margin-top:10px;">That voice was there in the opening story. The buyer ignored it, and bought a ghost. Every one of us has a version of that moment. The work is learning to recognize it, to pause when it arrives, and to act on what it says — even when the sun is glinting off the hood and the price is right and the seller is charming.</p>
+    <p class="body reveal reveal-4" style="color:var(--bone); margin-top:10px; font-style:italic; color:var(--signal);">When the voice speaks, listen.</p>
+
+    <div class="page-foot l" style="color:var(--bone); opacity:.7;">136 · THE FINAL WORD</div>
+  </div>
+
+  <div class="page dark" style="position:relative; display:flex; flex-direction:column; justify-content:center; padding:60px 48px;">
+    <div style="position:absolute; top:20%; right:-10%; font-family:var(--display); font-weight:900; font-size:500px; line-height:.8; color:var(--signal); opacity:.06; pointer-events:none; z-index:0;">×</div>
+
+    <div style="position:relative; z-index:2;">
+      <div class="pull reveal" style="color:var(--bone); border-color:var(--signal); font-size:30px; line-height:1.15;">
+        "If it's <em style="color:var(--signal);">too good</em> to be true,<br>it <em style="color:var(--signal);">is</em> too good to be true."
+      </div>
+
+      <div style="margin-top:60px; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:end;">
+        <div class="reveal reveal-1">
+          <div style="font-family:var(--italic); font-style:italic; font-size:20px; color:var(--bone);">—</div>
+          <div style="font-family:var(--display); font-weight:900; font-style:italic; font-size:48px; color:var(--signal); line-height:1;">Ahmed.</div>
+          <div class="byline" style="color:var(--bone); margin-top:10px;">AHMED ABDUL WAHID</div>
+          <div class="byline" style="color:var(--bone); opacity:.7; margin-top:4px;">EDITOR · OBSERVER · TINKERER<br>&amp; LOVER OF ENGINES</div>
+        </div>
+        <div class="reveal reveal-2" style="text-align:right; font-family:var(--mono); font-size:10px; color:var(--bone); opacity:.7; letter-spacing:.15em; line-height:1.8;">
+          CARGUYS QUARTERLY<br>
+          VOLUME I · ISSUE №001<br>
+          THE FIRST-DRIVE ISSUE<br>
+          SET IN PLAYFAIR DISPLAY,<br>
+          MANROPE &amp; JETBRAINS MONO<br>
+          TORONTO · MMXXVI<br>
+          — FIN —
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-tab ink">THE FINAL WORD</div>
+    <div class="page-foot r" style="color:var(--bone); opacity:.7;">137 · CARGUYS №001</div>
+  </div>
+</section>
+
+</div><!-- /.mag -->
+
+<script>
+/* ============================================================
+   Interactions
+   ============================================================ */
+(function(){
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Focus page when centered
+  const pages = document.querySelectorAll('.spread, .single');
+  const fo = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.intersectionRatio > 0.55) e.target.classList.add('focus');
+      else e.target.classList.remove('focus');
+    });
+  }, { threshold:[0, 0.55, 0.9] });
+  pages.forEach(p => fo.observe(p));
+
+  // Nav dots
+  const nav = document.getElementById('navDots');
+  if (nav) {
+    pages.forEach((p, i) => {
+      const b = document.createElement('button');
+      const title = p.dataset.title || ('Page ' + (i+1));
+      const lbl = document.createElement('span');
+      lbl.textContent = title;
+      b.appendChild(lbl);
+      b.setAttribute('aria-label', title);
+      b.onclick = () => p.scrollIntoView({ behavior:'smooth', block:'center' });
+      nav.appendChild(b);
+    });
+    const no = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.intersectionRatio > 0.5) {
+          const idx = [...pages].indexOf(e.target);
+          nav.querySelectorAll('button').forEach((b,i) => b.classList.toggle('active', i===idx));
+        }
+      });
+    }, { threshold:0.5 });
+    pages.forEach(p => no.observe(p));
+  }
+
+  // Reading progress
+  const pf = document.getElementById('progressFill');
+  const updateProgress = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max ? (h.scrollTop / max * 100) : 0;
+    if (pf) pf.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // Parallax photos
+  const parallaxEls = document.querySelectorAll('.photo.parallax');
+  let rafId = null;
+  const tickParallax = () => {
+    const vh = window.innerHeight;
+    parallaxEls.forEach(el => {
+      const img = el.querySelector('img');
+      if (!img) return;
+      const rect = el.getBoundingClientRect();
+      // Only animate when in/near viewport
+      if (rect.bottom < -200 || rect.top > vh + 200) return;
+      const mid = rect.top + rect.height/2;
+      const delta = (mid - vh/2) / vh;
+      const strength = parseFloat(el.dataset.parallax || '0.1');
+      const offset = delta * vh * strength;
+      img.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.15)`;
+    });
+    rafId = null;
+  };
+  const scheduleParallax = () => {
+    if (!rafId) rafId = requestAnimationFrame(tickParallax);
+  };
+  window.addEventListener('scroll', scheduleParallax, { passive:true });
+  window.addEventListener('resize', scheduleParallax);
+  scheduleParallax();
+})();
+</script>
+
+</body>
+</html>
